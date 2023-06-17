@@ -1,0 +1,246 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+import ContactCTA from "../components/ContactCTA.astro";
+import Hero from "../components/Hero.astro";
+---
+
+<BaseLayout
+	title="About | Wolfgang Bubberman"
+	description="About Wolfgang Bubberman"
+>
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="About"
+				tagline="Thanks for stopping by. Read below to learn more about myself and my background."
+			>
+				<img
+					width="1553"
+					height="873"
+					src="/assets/at-work.jpg"
+					alt="Wolfgang Bubberman next to the Forze IX"
+				/>
+			</Hero>
+
+			<section>
+				<h2 class="section-title">Background</h2>
+				<div class="content">
+					<p>
+						I am an ambitious and driven individual with a strong
+						passion for computer science and software engineering.
+						With a proven track record of success, I am constantly
+						seeking new challenges to push myself beyond my comfort
+						zone.
+					</p>
+					<p>
+						During my time at Technical University of Delft, where I
+						pursued a Bachelor's degree in Computer Science, I
+						specialized in data science and AI. I took a minor
+						abroad in Stockholm, Sweden, where I gained a deeper
+						understanding of Ethical Hacking and Multi-Agent
+						Systems.
+					</p>
+					<p>
+						In my Master's degree, I focused extensively on Deep
+						Learning, Quantum Computing, and the field of Side
+						Channel Analysis. I even published a <a
+							href="https://github.com/AISyLab/side-channel-analysis-toolbox"
+							>toolbox</a
+						> in side channel analysis that is still being utilized by
+						researchers today.
+					</p>
+					<p>
+						In addition to my academic achievements, I have been
+						actively engaged in personal projects, particularly in
+						Rust development. These projects have allowed me to
+						apply my knowledge and enhance my skills in a practical
+						setting. I have also dedicated my time as the Chief
+						Software Engineer at Forze Hydrogen Racing, where I led
+						a team of talented individuals in building the world's
+						fastest hydrogen race car. This experience provided me
+						with valuable insights into C++ programming and honed my
+						skills in planning, presenting, and collaborative
+						teamwork.
+					</p>
+					<p>
+						Furthermore, I have been working at Flowtraders in
+						Amsterdam since August 2022, where I have contributed to
+						the development of various projects and continued to
+						expand my skill set.
+					</p>
+					<p>
+						Outside of academia and work, I have made significant
+						strides in the field of Powerlifting. As a coach, I have
+						been able to share my expertise and guide others in
+						their powerlifting journeys. I have also collaborated
+						with a friend to develop a unique coaching website,
+						which has gained recognition and is even utilized by one
+						of the top powerlifting coaches.
+					</p>
+					<p>
+						I am motivated by challenges and thrive in environments
+						where innovation and growth are encouraged. I am eager
+						to apply my skills and expertise to tackle complex
+						problems and contribute to the success of organizations
+						that align with my values and aspirations.
+					</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Education</h2>
+				<div class="content">
+					<p>
+						<strong>Master of Science in Computer Science</strong
+						><br />
+						<em>Delft University of Technology</em> 09/2020 – 07/2022<br
+						/>
+					</p>
+					<ul>
+						<li>
+							Data-science track with a specialization in
+							cyber-security
+						</li>
+						<li>
+							Thesis on the analysis of higher-order univariate
+							and multivariate data sets in the field of Profiled
+							Side-Channel Analysis, <href> </href>
+							<li>
+								Practical experience in applying Deep Learning
+								and other Artificial Intelligence techniques
+							</li>
+						</li>
+					</ul>
+					<p>
+						<strong
+							>Bachelor of Science in Computer Science &
+							Engineering</strong
+						><br />
+						<em>Delft University of Technology</em> 09/2017 – 07/2020<br
+						/>
+					</p>
+					<ul>
+						<li>
+							Minor abroad at KTH Royal Institute of Technology in
+							Stockholm, Sweden
+						</li>
+						<li>
+							Participation in ten different group projects, four
+							of which as a team leader
+						</li>
+					</ul>
+				</div>
+				<section>
+					<h2 class="section-title">Skills</h2>
+					<div class="content">
+						<ul>
+							<li>Software Engineering</li>
+							<li>DevOps</li>
+							<li>Platform Development</li>
+							<li>Building Pipelines</li>
+							<li>Embedded Programming</li>
+							<li>Data Science</li>
+							<li>Deep Learning & Artificial Intelligence</li>
+						</ul>
+					</div>
+				</section>
+				<section>
+					<h2 class="section-title">Programming Languages</h2>
+					<div class="content">
+						<ul>
+							<li>Rust</li>
+							<li>Python</li>
+							<li>C++/C</li>
+							<li>Assembly x86</li>
+							<li>Typescript</li>
+							<li>Java</li>
+							<li>Matlab</li>
+							<li>Prolog</li>
+							<li>R</li>
+						</ul>
+					</div>
+				</section>
+
+				<section>
+					<h2 class="section-title">Tools</h2>
+					<div class="content">
+						<ul>
+							<li>Kubernetes</li>
+							<li>Airflow</li>
+							<li>Kafka</li>
+							<li>Ansible</li>
+							<li>Docker</li>
+							<li>Astro</li>
+							<li>Vue</li>
+							<li>React</li>
+							<li>Tensorflow</li>
+							<li>Keras</li>
+							<li>Git</li>
+							<li>Latex</li>
+							<li>Markdown</li>
+						</ul>
+					</div>
+				</section>
+			</section>
+		</main>
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>
