@@ -8,9 +8,11 @@ import PortfolioPreview from "../components/PortfolioPreview.astro";
 import Hero from "../components/Hero.astro";
 import Grid from "../components/Grid.astro";
 
-const projects = (await getCollection("work")).sort(
-	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
-);
+const projects = (await getCollection("work"))
+	.filter((entry) => !entry.slug.includes("/"))
+	.sort(
+		(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+	);
 ---
 
 <BaseLayout
