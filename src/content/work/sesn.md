@@ -1,7 +1,7 @@
 ---
 title: "SESN: Scale-Equivariant Steerable Networks"
 publishDate: 2021-04-02 00:00:00
-img: /assets/stock-1.jpg
+img: /assets/SESN.gif
 img_alt: Showcase of scale-equivariant scaling implemented based on ICLR 2020.
 description: |
     We undertook the task of reproducing and extending the renowned research conducted by Ivan Sosnovik, Michał Szmaja, and Arnold Smeulders on "Scale-equivariant Steerable Networks."

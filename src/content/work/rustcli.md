@@ -6,9 +6,10 @@ img_alt: Pearls of silky soft white cotton, bubble up under vibrant lighting
 description: |
   I worked on many smaller Rust Command Line Interface projects, you can find a collection of them here.
 tags:
-  - Rustlang
+  - Rust
   - Dev
   - Command Line Interface
+isCollection: true
 ---
 
 One of my early projects in Rust that truly captivated me and deepened my love for the language was my personal reimplementation of the "cat" tool. In Unix-based terminals, "cat" is widely used to display the contents of a file. I recreated this tool in Rust, incorporating additional options and the ability to concatenate multiple files in a single command execution. You can explore the repository [here](https://github.com/Jurkyy/rcat).

@@ -1,8 +1,8 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+import type { CollectionEntry } from "astro:content";
 
 interface Props {
-	project: CollectionEntry<'work'>;
+	project: CollectionEntry<"work">;
 }
 
 const { data, slug } = Astro.props.project;
@@ -10,7 +10,12 @@ const { data, slug } = Astro.props.project;
 
 <a class="card" href={`/work/${slug}`}>
 	<span class="title">{data.title}</span>
-	<img src={data.img} alt={data.img_alt || ''} loading="lazy" decoding="async" />
+	<img
+		src={data.img}
+		alt={data.img_alt || ""}
+		loading="lazy"
+		decoding="async"
+	/>
 </a>
 
 <style>
@@ -60,5 +65,17 @@ const { data, slug } = Astro.props.project;
 		.title {
 			border-radius: 0.9375rem;
 		}
+	}
+
+	.collection-indicator {
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: 0.25rem 0.5rem;
+		background-color: var(--gray-300);
+		color: var(--gray-800);
+		font-size: 0.75rem;
+		font-weight: bold;
+		border-bottom-left-radius: 0.375rem;
 	}
 </style>
