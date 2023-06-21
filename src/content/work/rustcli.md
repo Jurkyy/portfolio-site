@@ -9,7 +9,7 @@ tags:
   - Rust
   - Dev
   - Command Line Interface
-isCollection: true
+children: [{title: rcat}, {title: rshell}]
 ---
 
 One of my early projects in Rust that truly captivated me and deepened my love for the language was my personal reimplementation of the "cat" tool. In Unix-based terminals, "cat" is widely used to display the contents of a file. I recreated this tool in Rust, incorporating additional options and the ability to concatenate multiple files in a single command execution. You can explore the repository [here](https://github.com/Jurkyy/rcat).
