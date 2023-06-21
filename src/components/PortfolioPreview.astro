@@ -20,10 +20,10 @@ const isCollection = data.children !== undefined;
 	/>
 	{
 		isCollection && (
-			<span class="collection-indicator flex flex-col rounded-2xl">
+			<span class="collection-indicator">
 				<span class="font-bold">Collection</span>
 				{data.children!.map((child) => (
-					<span class=" hover:scale-105 transition-transform">
+					<span class="collection-indicator-child">
 						- {child.title}
 					</span>
 				))}
@@ -46,11 +46,12 @@ const isCollection = data.children !== undefined;
 		font-family: var(--font-brand);
 		font-size: var(--text-lg);
 		font-weight: 500;
-		transition: box-shadow var(--theme-transition);
+		transition: transform 200ms ease-in-out;
 	}
 
 	.card:hover {
 		box-shadow: var(--shadow-md);
+		transform: scale(1.05);
 	}
 
 	.title {
@@ -61,6 +62,11 @@ const isCollection = data.children !== undefined;
 		background: var(--gray-999);
 		color: var(--gray-200);
 		border-radius: 0.375rem;
+	}
+
+	.title:hover {
+		transform: scale(1.025);
+		transition: transform 50ms ease-in-out;
 	}
 
 	img {
@@ -82,6 +88,8 @@ const isCollection = data.children !== undefined;
 	}
 
 	.collection-indicator {
+		display: flex;
+		flex-direction: column;
 		position: absolute;
 		top: 0;
 		right: 0;
@@ -90,5 +98,10 @@ const isCollection = data.children !== undefined;
 		background: var(--gray-999);
 		color: var(--gray-200);
 		border-radius: 0.375rem;
+	}
+
+	.collection-indicator-child:hover {
+		transform: scale(1.1);
+		transition: transform 50ms ease-in-out;
 	}
 </style>
