@@ -18,18 +18,7 @@ const isCollection = data.children !== undefined;
 		loading="lazy"
 		decoding="async"
 	/>
-	{
-		isCollection && (
-			<span class="collection-indicator">
-				<span class="font-bold">Collection</span>
-				{data.children!.map((child) => (
-					<span class="collection-indicator-child">
-						- {child.title}
-					</span>
-				))}
-			</span>
-		)
-	}
+	{isCollection && <span class="collection">Collection</span>}
 </a>
 
 <style>
@@ -87,10 +76,9 @@ const isCollection = data.children !== undefined;
 		}
 	}
 
-	.collection-indicator {
+	.collection {
 		display: flex;
 		flex-direction: column;
-		position: absolute;
 		top: 0;
 		right: 0;
 		margin: 0.5rem;

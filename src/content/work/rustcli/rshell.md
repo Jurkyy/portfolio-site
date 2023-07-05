@@ -1,6 +1,6 @@
 ---
 title: rshell
-publishDate: 2023-01-05 00:00:00
+publishDate: 2023-05-01 00:00:00
 img: /assets/rshell.jpg
 img_alt: Screenshot of the rshell, demonstrating some base features.
 description: |

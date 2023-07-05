@@ -1,6 +1,6 @@
 ---
 title: Spinny Cube
-publishDate: 2023-01-30 00:00:00
+publishDate: 2023-30-01 00:00:00
 img: /assets/spinnycube.gif
 img_alt: Gif showcasing the cube in question spinning, with lines of text documenting statistics.
 description: |

@@ -1,15 +1,19 @@
 ---
 title: Rust CLI
-publishDate: 2022-08-04 00:00:00
+publishDate: 2022-04-08 00:00:00
 img: /assets/rshell.jpg
 img_alt: Pearls of silky soft white cotton, bubble up under vibrant lighting
 description: |
   I worked on many smaller Rust Command Line Interface projects, you can find a collection of them here.
 tags:
   - Rust
-  - Command Line Interface
+  - CLI
 children: [{title: rcat}, {title: rshell}]
 ---
 
-This is a collection of several CLI-tools and CLI related projects, implemented in Rust. You can find a more detailed description of these projects in the previews above. Naturally, they are sorted from most recent, to least recent.
+This compilation comprises a variety of Rust-based Command Line Interface (CLI) tools and related projects. The project previews above are arranged in descending order, reflecting their respective chronological order.
+
+Each project within this collection is designed to serve specific purposes, and you can find more detailed information about them in the previous sections. 
+
+This assortment of Rust CLI tools and projects demonstrates my ongoing exploration of the language and its application in command-line interfaces. The range of projects encompasses diverse functionalities and showcases my evolving expertise in Rust programming.
 

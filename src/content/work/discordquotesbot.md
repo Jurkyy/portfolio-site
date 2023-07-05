@@ -1,6 +1,6 @@
 ---
 title: Discord Quotes Bot
-publishDate: 2022-11-15 00:00:00
+publishDate: 2022-15-11 00:00:00
 img: /assets/discordquotesbot.png
 img_alt: Image showcasing several instances of the discord quotes bot being called in a chat and responding.
 description: |
