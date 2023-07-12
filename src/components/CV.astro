@@ -1,0 +1,49 @@
+---
+import DownloadFile from "./DownloadFile.astro";
+const lastUpdated = "July 2023";
+---
+
+<aside>
+	<DownloadFile
+		href="/assets/cv.pdf"
+		name="cv_wolfgang_bubberman.pdf"
+		description="Curriculum Vitae"
+	/>
+	<h4>
+		Prefer to have this in a more traditional CV style? Here is the most
+		recent version from {lastUpdated}.
+	</h4>
+</aside>
+<style>
+	aside {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 3rem;
+		border-top: 1px solid var(--gray-800);
+		border-bottom: 1px solid var(--gray-800);
+		padding: 5rem 1.5rem;
+		background-color: var(--gray-999_40);
+		box-shadow: var(--shadow-sm);
+	}
+
+	h4 {
+		font-size: var(--text-md);
+		text-align: center;
+		max-width: 50ch;
+	}
+
+	@media (min-width: 50em) {
+		aside {
+			padding: 7.5rem;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+
+		h4 {
+			font-size: var(--text-xl);
+			text-align: left;
+		}
+	}
+</style>
