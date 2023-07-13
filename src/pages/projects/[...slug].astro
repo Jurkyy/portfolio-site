@@ -23,11 +23,12 @@ export async function getStaticPaths() {
 		props: { entry },
 	}));
 }
-
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 const projects = (await getCollection("projects"))
-	.filter((project) => project.slug.includes("/"))
+	.filter((project) =>
+		project.slug.includes("/" + entry.data.tags[0].toLowerCase()[0])
+	)
 	.sort(
 		(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
 	);

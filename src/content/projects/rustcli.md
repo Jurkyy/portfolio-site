@@ -11,7 +11,7 @@ tags:
 children: [{title: rcat}, {title: rshell}]
 ---
 
-This compilation comprises a variety of Rust-based Command Line Interface (CLI) tools and related projects. The project previews above are arranged in descending order, reflecting their respective chronological order.
+This collection comprises a variety of Rust-based Command Line Interface (CLI) tools and related projects. The project previews above are arranged in descending order, reflecting their respective chronological order.
 
 Each project within this collection is designed to serve specific purposes, and you can find more detailed information about them in the previous sections. 
 

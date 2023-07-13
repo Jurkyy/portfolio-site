@@ -4,18 +4,18 @@ publishDate: 2023-30-01 00:00:00
 img: /assets/spinnycube.gif
 img_alt: Gif showcasing the cube in question spinning, with lines of text documenting statistics.
 description: |
-  Spinning cube, made out of characters printed very fast to the commandline using Rust and Linear Algebra!
+   A spinning cube, made out of characters printed very fast to the commandline using Rust and Linear Algebra!
 tags:
   - Rust
   - Linear Algebra
   - ANSI
 ---
 
-A small project to play around with Linear Algebra and command-line ANSI printing in Rust. The result is a 3D cube, spinning in an arbitrary direction, with a soft see through factor. You can find the code on my Github, [here](https://github.com/Jurkyy/spinny-cube).
+This is a project, that I used to play around with Linear Algebra and command-line ANSI printing in Rust. The result is a 3D cube, spinning in an arbitrary direction, with a soft see through factor. You can find the code on my Github, [here](https://github.com/Jurkyy/spinny-cube).
 
 The most interesting part in this project is the Linear Algebra ofcourse which makes it all work.
 
-"A basic rotation (also called elemental rotation) is a rotation about one of the axes of a coordinate system. The following three basic rotation matrices rotate vectors by an angle θ about the x-, y-, or z-axis, in three dimensions, using the right-hand rule—which codifies their alternating signs." ~ [Swokowski, Earl (1979)](https://archive.org/details/studentsupplemen00bron)
+> "A basic rotation (also called elemental rotation) is a rotation about one of the axes of a coordinate system. The following three basic rotation matrices rotate vectors by an angle θ about the x-, y-, or z-axis, in three dimensions, using the right-hand rule—which codifies their alternating signs." ~ [Swokowski, Earl (1979)](https://archive.org/details/studentsupplemen00bron)
 
 Knowing this, and playing around with cos and sin in a three dimensional matrix, we can formulate the following three matrices:
 
