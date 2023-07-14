@@ -8,6 +8,7 @@ description: |
 tags:
   - SCA
   - AI & Deep Learning
+  - Security
 children: [{title: deep-learning-sca-imbalanced-data}, {title: side-dl}, {title: sca-toolbox}]
 ---
 I have done many different projects within the field of Side-Channel Anaylsis (SCA), my MSc Thesis even dug deeper into the subject and made a major improvement to the field. To showcase some of these projects I have made this collection, please see the project previews above, they are in chronological order.
