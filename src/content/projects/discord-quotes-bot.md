@@ -9,6 +9,7 @@ tags:
   - Python
   - Bot
   - Data analysis
+size: Small
 ---
 
 This is a discord quotes bot that can post, analyse and search for specific posts made in a discord guild. 

@@ -9,6 +9,7 @@ tags:
   - Scale-equivariance
   - AI
   - Reproducibility
+size: Medium
 ---
 
 ## Revolutionising work

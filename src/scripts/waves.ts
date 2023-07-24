@@ -89,10 +89,10 @@ class ClassicalNoise {
 const canvas = document.getElementById('waves') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d')!;
 const perlin = new ClassicalNoise();
-const variation = 0.001;
+const variation = 0.0015;
 const amp = 750;
-const maxLines = 48;
-const speed = 0.001; // Increased speed
+const maxLines = 32;
+const speed = 0.0015; // Increased speed
 const variators: number[] = [];
 const color = "147, 21, 255"; // Updated color
 let canvasWidth: number;

@@ -9,6 +9,7 @@ tags:
   - SCA
   - Keras Tensorflow
   - Deep learning
+size: Medium
 ---
 One of the more extensive projects I have done into Side-Channel Anaylsis (SCA) is into the evaluation metrics a Deep Learning Algorithm would to assess the performance and effectiveness of the model it procudes. In this work two former, fellow students (Sengim Karayalcin and Jari Bervoets) and I explore designing a more efficient self-developed metric called Log-Likelihood Ratio (LLR). You can find the code for this project [here](https://github.com/Jurkyy/novel-evaluation-metric) on Github. There you will find all the models that we used, and a setup explanation if you want to reproduce our results. You should also note that we have also extensively discussed our results in a paper we wrote, you can download it <a href="/assets/novel-evaluation-metric.pdf" download>here</a> and read the abstact below: 
 

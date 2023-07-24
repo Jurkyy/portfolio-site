@@ -9,6 +9,7 @@ tags:
   - Command Line Interface
   - cat
   - Rust
+size: Small
 ---
 
 An implementation of the Linux command line tool "cat", written in Rust.

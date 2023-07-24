@@ -9,6 +9,7 @@ tags:
   - Website
   - Powerlifting
   - Svelte
+size: Large
 ---
 
 We have developed a dynamic website tailored for powerlifting coaching, aimed at overcoming the limitations of conventional tools like Google Sheets or Excel. Our website provides athletes and coaches with a range of features and analytics that significantly enhance their training experience. In this article, we will explore the key functionalities and advantages of our website, which offers a seamless mobile experience that traditional spreadsheet-based solutions lack.

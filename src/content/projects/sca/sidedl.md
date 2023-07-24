@@ -8,6 +8,7 @@ description: |
 tags:
   - SCA
   - Deep Learning & AI
+size: Large
 ---
 
 This is a highly advanced and versatile tool for side-channel analysis in the realm of Deep Learning (DL) and other AI methods. SideDL builds upon the foundation laid by the SCA-toolbox that I also worked on and incorporates numerous additional features to enhance its functionality and usability.

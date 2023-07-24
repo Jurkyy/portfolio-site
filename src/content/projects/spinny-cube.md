@@ -9,6 +9,7 @@ tags:
   - Rust
   - Linear Algebra
   - ANSI
+size: Small
 ---
 
 This is a project, that I used to play around with Linear Algebra and command-line ANSI printing in Rust. The result is a 3D cube, spinning in an arbitrary direction, with a soft see through factor. You can find the code on my Github, [here](https://github.com/Jurkyy/spinny-cube).

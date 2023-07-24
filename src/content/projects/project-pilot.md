@@ -9,6 +9,7 @@ tags:
   - Rust
   - Docker
   - ChatGPT
+size: Small
 ---
 
 Introducing an automated project scaffolding tool that streamlines the initial setup process, including Docker configuration, based on ChatGPT queries. This tool is perfect for swiftly establishing a project foundation and diving right into development.
@@ -21,3 +22,5 @@ Drawing inspiration from the [code-muse-project](https://github.com/security-uni
 * Elimination of jokes (acknowledging they weren't particularly humorous)
 * Option to specify the project path
 * By incorporating these advancements, the aim is to provide an even more polished and efficient experience for project initialization.
+
+You can find the implementation of this project, and use it for yourself [here](https://github.com/Jurkyy/project-pilot).

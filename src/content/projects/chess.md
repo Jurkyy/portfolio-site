@@ -8,6 +8,7 @@ description: |
 tags:
   - Rust
   - Chess
+size: Medium
 ---
 
 This project represents my personal endeavor to enhance my programming skills in Rust by tackling a more extensive scope. Its primary goal was to deepen my understanding of project design and improve my utilization of Cargo, the Rust package manager.

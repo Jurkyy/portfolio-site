@@ -11,7 +11,9 @@ export const collections = {
 			img_alt: z.string().optional(),
 			children: z.array(z.object({
 				title: z.string(),
-			})).optional()
+			})).optional(),
+			size: z.string().optional()
 		}),
 	}),
 };
+

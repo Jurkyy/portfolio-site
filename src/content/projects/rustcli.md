@@ -1,8 +1,8 @@
 ---
 title: Rust CLI
-publishDate: 2022-04-08 00:00:00
+publishDate: 2022-08-08 00:00:00
 img: /assets/rshell.jpg
-img_alt: Pearls of silky soft white cotton, bubble up under vibrant lighting
+img_alt: Screenshot of the rshell, demonstrating some base features.
 description: |
   I worked on many smaller Rust Command Line Interface projects, you can find a collection of them here.
 tags:

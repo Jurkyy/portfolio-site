@@ -9,6 +9,7 @@ tags:
   - SCA
   - CLI
   - Research
+size: Large
 ---
 In this project, we built a toolbox providing many different SCA tools, some of which attack implementations, analysis tools and evaluation metrics. Even a sub tool that simulates certain countermeasures into datasets for more in depth research on higher-order encryption implementations. The project was rather successful, seeing a significant amount of forks and stars on this repo and even the publishment of this toolbox by a security researching lab, called AISyLab. The code, including a detailed explanation of features and usage of the project can be found [here](https://github.com/AISyLab/side-channel-analysis-toolbox).
 

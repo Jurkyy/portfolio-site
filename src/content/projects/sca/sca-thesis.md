@@ -9,6 +9,7 @@ tags:
   - SCA
   - Higher-order univariate data
   - Thesis
+size: Huge
 ---
 
 I did research into how to improve the state-of-the-art breaking of hardware-based implementations, see the code I used [here](https://github.com/Jurkyy/ms-thesis.git) and the abstract of it below:

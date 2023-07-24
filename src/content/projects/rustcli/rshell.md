@@ -9,6 +9,7 @@ tags:
   - Command Line Interface
   - Shell
   - Rust
+size: Small
 ---
 
 Another exciting project I embarked on while learning Rust was creating my very own shell, a command-line interface (CLI) program. We've all marveled at the mysterious black box that hackers use to perform their impressive computer feats, and that inspired me to develop my own shell. Each line in the shell is adorned with a delightful :fire: emoji because, well, it's just that cool.
