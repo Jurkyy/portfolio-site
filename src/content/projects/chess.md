@@ -8,14 +8,15 @@ description: |
 tags:
   - Rust
   - Chess
-size: Medium
+size: Large
 ---
 
-This project represents my personal endeavor to enhance my programming skills in Rust by tackling a more extensive scope. Its primary goal was to deepen my understanding of project design and improve my utilization of Cargo, the Rust package manager.
+This project represents my effort to enhance my Rust programming skills by taking on a more comprehensive challenge. I aimed to deepen my understanding of software design principles, leverage Cargo – Rust's package manager, and refine problem-solving techniques.
 
-Although the chess game implementation is complete, the user interaction aspect remains relatively basic at this stage. Currently, players can only move pieces using standard chess notation. Notably, this implementation boasts comprehensive support for FEN (Forsyth-Edwards Notation) strings, a feature that will prove invaluable when developing a chess bot that can leverage this implementation.
+At its core, the project is a complete chess game implementation. Players can engage with the chessboard using standard algebraic notation, adding familiarity to the user experience. The implementation includes support for Forsyth-Edwards Notation (FEN) strings, facilitating integration with advanced features like chess engines and AI bots.
 
-Through this project, I aimed to advance my proficiency in Rust programming, broaden my knowledge of project architecture, and optimize my utilization of Cargo's capabilities.
+Beyond chess, the project exemplifies clean and decoupled code design for maintainability. By focusing on performance optimization and best practices, I aimed to create an efficient implementation.
 
-As always, the respository can be found [here](https://github.com/Jurkyy/chess).
+This journey has honed my Rust skills, explored software development nuances, and embraced the Rust ecosystem. Explore the project on [GitHub](https://github.com/Jurkyy/chess).
 
+The journey continues, with anticipation for future developments as I refine my Rust proficiency.
