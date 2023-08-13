@@ -8,6 +8,11 @@ interface Props {
 const { data, slug } = Astro.props.project;
 const isCollection = data.children !== undefined;
 const hasSize = data.size !== undefined;
+
+let transition_id = slug;
+if (slug.includes("/")) {
+  transition_id = slug.split("/")[1];
+}
 ---
 
 <a class="card" href={`/projects/${slug}`}>
@@ -15,6 +20,7 @@ const hasSize = data.size !== undefined;
   {hasSize && <span class="size">{data.size}</span>}
 
   <img
+    transition:name={transition_id}
     src={data.img}
     alt={data.img_alt || ""}
     loading="lazy"
