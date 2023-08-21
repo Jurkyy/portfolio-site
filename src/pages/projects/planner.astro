@@ -7,6 +7,7 @@ import ContactCTA from "../../components/ContactCTA.astro";
 import PortfolioPreview from "../../components/PortfolioPreview.astro";
 import Hero from "../../components/Hero.astro";
 import Grid from "../../components/Grid.astro";
+import ProjectColumn from "../../components/ProjectColumn.astro";
 
 const projects = (await getCollection("projects"))
   .filter((entry) => !entry.slug.includes("/"))
@@ -28,10 +29,29 @@ const projects = (await getCollection("projects"))
         tagline="See here how I've planned out my current projects"
         align="start"
       />
-      <div>
+      <div class="project-columns">
         <!-- here I want my project columns -->
+        <ProjectColumn category="Planned" />
+        <ProjectColumn category="In progress" />
+        <ProjectColumn category="On hold" />
       </div>
     </main>
     <ContactCTA />
   </div>
 </BaseLayout>
+
+<style>
+  /* Define the styling for the project columns */
+  .project-columns {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Adjust this for spacing between columns */
+  }
+
+  /* Optionally, you can add media queries to make the columns responsive */
+  @media screen and (max-width: 768px) {
+    .project-columns {
+      flex-direction: column; /* Stack columns on smaller screens */
+    }
+  }
+</style>

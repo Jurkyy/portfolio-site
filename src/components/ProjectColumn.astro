@@ -1,21 +1,56 @@
 ---
-import projects from '../../public/assets/planner.json'
+import projects from "../../public/assets/planner.json";
 
 interface Props {
   category: string;
 }
 
 const { category } = Astro.props;
-console.log("printing" + projects[0]);
 ---
-<ProjectColumn {category}>
-  <h2>{category}</h2>
+
+<div class="project-column">
+  <h3>{category}</h3>
   <ul>
-    {#each projects.filter(project => project.category === category) as project}
-      <li>
-        <h3>{project.name}</h3>
-        <div>Tags: {project.tags.join(', ')}</div>
-      </li>
-    {/each}
+    {
+      projects
+        .filter((project) => project.category === category)
+        .map((project) => (
+          <li>
+            <h2>{project.name}</h2>
+            <div>Tags: {project.tags.join(", ")}</div>
+          </li>
+        ))
+    }
   </ul>
-</ProjectColumn>
+</div>
+
+<style>
+  /* Style the container for each project column */
+  .project-column {
+    flex: 1;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  /* Style the h2 title at the top */
+  .project-column h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  /* Style the list of items */
+  .project-column ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  /* Style each item in the column */
+  .project-column li {
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+  }
+</style>

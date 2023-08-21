@@ -8,6 +8,14 @@
         ]
     },
     {
+        "name": "Project 0",
+        "category": "Planned",
+        "tags": [
+            "Small",
+            "Web"
+        ]
+    },
+    {
         "name": "Project 2",
         "category": "In progress",
         "tags": [
@@ -17,7 +25,7 @@
     },
     {
         "name": "Project 3",
-        "category": "Completed",
+        "category": "On hold",
         "tags": [
             "Large",
             "Web"
