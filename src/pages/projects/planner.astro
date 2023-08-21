@@ -1,0 +1,37 @@
+---
+import { getCollection } from "astro:content";
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+import ContactCTA from "../../components/ContactCTA.astro";
+import PortfolioPreview from "../../components/PortfolioPreview.astro";
+import Hero from "../../components/Hero.astro";
+import Grid from "../../components/Grid.astro";
+
+const projects = (await getCollection("projects"))
+  .filter((entry) => !entry.slug.includes("/"))
+  .sort((a, b) => {
+    const dateA = new Date(a.data.publishDate);
+    const dateB = new Date(b.data.publishDate);
+    return dateB.valueOf() - dateA.valueOf();
+  });
+---
+
+<BaseLayout
+  title="My Projects | Wolfgang Bubberman"
+  description="Learn about Wolfgang Bubberman's most recent projects"
+>
+  <div class="stack gap-20">
+    <main class="wrapper stack gap-8">
+      <Hero
+        title="My Project Planner"
+        tagline="See here how I've planned out my current projects"
+        align="start"
+      />
+      <div>
+        <!-- here I want my project columns -->
+      </div>
+    </main>
+    <ContactCTA />
+  </div>
+</BaseLayout>

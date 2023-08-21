@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Project 1",
+        "category": "Planned",
+        "tags": [
+            "Small",
+            "Web"
+        ]
+    },
+    {
+        "name": "Project 2",
+        "category": "In progress",
+        "tags": [
+            "Medium",
+            "Mobile"
+        ]
+    },
+    {
+        "name": "Project 3",
+        "category": "Completed",
+        "tags": [
+            "Large",
+            "Web"
+        ]
+    }
+]

@@ -1,0 +1,21 @@
+---
+import projects from '../../public/assets/planner.json'
+
+interface Props {
+  category: string;
+}
+
+const { category } = Astro.props;
+console.log("printing" + projects[0]);
+---
+<ProjectColumn {category}>
+  <h2>{category}</h2>
+  <ul>
+    {#each projects.filter(project => project.category === category) as project}
+      <li>
+        <h3>{project.name}</h3>
+        <div>Tags: {project.tags.join(', ')}</div>
+      </li>
+    {/each}
+  </ul>
+</ProjectColumn>

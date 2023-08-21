@@ -9,9 +9,9 @@ const { data, slug } = Astro.props.project;
 const isCollection = data.children !== undefined;
 const hasSize = data.size !== undefined;
 
-let transition_id = slug;
+let transition_id: string = slug;
 if (slug.includes("/")) {
-  transition_id = slug.split("/")[1];
+  transition_id = slug.split("/")[1] as string;
 }
 ---
 

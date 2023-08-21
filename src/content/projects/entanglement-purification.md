@@ -16,8 +16,8 @@ This project focuses on the implementation of quantum entanglement purification 
 
 While there was an additional objective for the project to implement and compare the BBPSSW and EPL protocols too, concerning success rate and fidelity, due to time constraints, the implementation details were not included in the associated paper. The research conducted, however, highlights that the 3 → 1 protocol demonstrated a lower success rate and slightly higher fidelity compared to the DEJMPS, considering the same values of channel and gate fidelity.
 
-It is noteworthy that the fidelity of the initial pairs and the gate fidelity play significant roles in the impact on the success rate and fidelity of the purification protocols.
+#### Paper
 
-For more detailed information on the research and comparison of the DEJMPS and 3 → 1 protocols, please refer to the research paper: [PDF](/assets/entanglement-purification.pdf).
+For more detailed information on the research and comparison of the DEJMPS and 3 → 1 protocols, please refer to the research paper: [PDF](/assets/entanglement-purification.pdf). This is as a mere blog post is too small to give all the details regarding such a complex topic like quantum entanglement purification.
 
 The implementation and simulation code for this project can be found on GitHub: [Repository](https://github.com/Jurkyy/entanglement-purification).

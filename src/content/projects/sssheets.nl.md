@@ -6,7 +6,6 @@ img_alt: An overview of the sssheets.nl website.
 description: |
   Powerlifting tracking & coaching website, developed in Svelte(-kit).
 tags:
-  - Website
   - Powerlifting
   - Svelte
 size: Large

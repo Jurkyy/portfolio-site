@@ -14,7 +14,8 @@ size: Small
 
 Introducing an automated project scaffolding tool that streamlines the initial setup process, including Docker configuration, based on ChatGPT queries. This tool is perfect for swiftly establishing a project foundation and diving right into development.
 
-Drawing inspiration from the [code-muse-project](https://github.com/security-union/code-muse-rs/), this endeavor builds upon the original concept, introducing various enhancements and additional features. These improvements include, but are not limited to:
+#### Improvements
+Drawing inspiration from the [code-muse-project](https://github.com/security-union/code-muse-rs/), this endeavor builds upon the original concept of a bot that uses AI to build a base project, introducing various enhancements and additional features. These improvements include, but are not limited to:
 
 * Specification and validation of the OPEN_API_KEY
 * Enhanced error handling mechanisms for greater reliability

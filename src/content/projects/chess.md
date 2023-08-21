@@ -13,7 +13,11 @@ size: Medium
 
 This project represents my effort to enhance my Rust programming skills by taking on a more comprehensive challenge. I aimed to deepen my understanding of software design principles, leverage Cargo – Rust's package manager, and refine problem-solving techniques.
 
+#### Implementation
+
 At its core, the project is a complete chess game implementation. Players can engage with the chessboard using standard algebraic notation, adding familiarity to the user experience. The implementation includes support for Forsyth-Edwards Notation (FEN) strings, facilitating integration with advanced features like chess engines and AI bots.
+
+#### Code design
 
 Beyond chess, the project exemplifies clean and decoupled code design for maintainability. By focusing on performance optimization and best practices, I aimed to create an efficient implementation.
 

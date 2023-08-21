@@ -1,7 +1,7 @@
 ---
 title: "SCA: Side-Channel Analysis"
 publishDate: 2021-02-04 00:00:00
-img: /assets/sca.webp
+img: /assets/sca.jpg
 img_alt: Showcase of a Side-Channel Analysis graph.
 description: |
     Side-channel analysis: Hacking into a computer, unveiling secrets through subtle physical information leakage—a captivating blend of technical prowess and ingenuity.
