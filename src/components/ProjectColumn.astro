@@ -16,8 +16,9 @@ const { category } = Astro.props;
         .filter((project) => project.category === category)
         .map((project) => (
           <li>
-            <h2>{project.name}</h2>
-            <div>Tags: {project.tags.join(", ")}</div>
+            <b>{project.name}</b>
+            <div>{project.tags.join(", ")}</div>
+            <a href={project.inspiration}>inspiration</a>
           </li>
         ))
     }

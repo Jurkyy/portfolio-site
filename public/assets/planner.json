@@ -1,34 +1,30 @@
 [
     {
-        "name": "Project 1",
+        "name": "Influencer AI automation",
         "category": "Planned",
         "tags": [
             "Small",
-            "Web"
-        ]
+            "Social Media"
+        ],
+        "inspiration": "https://www.youtube.com/watch?v=TA_NCwJmhS4"
     },
     {
-        "name": "Project 0",
+        "name": "Physics Engine in Rust",
         "category": "Planned",
-        "tags": [
-            "Small",
-            "Web"
-        ]
-    },
-    {
-        "name": "Project 2",
-        "category": "In progress",
-        "tags": [
-            "Medium",
-            "Mobile"
-        ]
-    },
-    {
-        "name": "Project 3",
-        "category": "On hold",
         "tags": [
             "Large",
-            "Web"
-        ]
+            "Rust"
+        ],
+        "inspiration": "https://github.com/johnBuffer/VerletSFML-Multithread"
+    },
+    {
+        "name": "Low Latency Trading System",
+        "category": "In progress",
+        "tags": [
+            "Large",
+            "Rust",
+            "C++"
+        ],
+        "inspiration": "https://github.com/PacktPublishing/Building-Low-Latency-Applications-with-CPP"
     }
 ]
