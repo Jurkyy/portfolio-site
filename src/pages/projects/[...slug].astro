@@ -31,7 +31,7 @@ const projects = (await getCollection("projects"))
   )
   .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
 
-let transition_id = entry.slug;
+let transition_id: string = entry.slug;
 if (entry.slug.includes("/")) {
   transition_id = entry.slug.split("/")[1];
 }

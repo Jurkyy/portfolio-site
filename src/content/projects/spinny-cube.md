@@ -22,14 +22,14 @@ The most interesting part in this project is the Linear Algebra ofcourse which m
 
 Knowing this, and playing around with cos and sin in a three dimensional matrix, we can formulate the following three matrices:
 
-![Rotation matrices](../../../public/assets/rotation_matrices.jpg)
+![Rotation matrices](/assets/rotation_matrices.jpg)
 
 Let's consider the rotation angles as follows: θ<sub>x</sub> for the roll, θ<sub>y</sub> for the pitch, and θ<sub>z</sub> for the yaw.
 
 The combined rotation matrix (x-axis, y-axis, z-axis) can be obtained by multiplying the individual rotation matrices in the desired order:
 
 
-![Rotation matrices](../../../public/assets/final_matrix.png)
+![Rotation matrices](/assets/final_matrix.png)
 
 In this combined rotation matrix, the values of cos(θx), cos(θy), and cos(θz) represent the cosine values of the roll, pitch, and yaw angles, respectively. Similarly, sin(θx), sin(θy), and sin(θz) represent the sine values of the roll, pitch, and yaw angles, respectively.
 
