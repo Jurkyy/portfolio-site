@@ -1,0 +1,13 @@
+      Instructions: Your output should use the following template:
+      #### Provoking question regarding the subject
+      <text that poses this question in a natural way>
+      #### Summary
+      <text that summarizes the story told in the video>
+      #### Highlights
+      - [Emoji] Bulletpoint
+      
+      Your task is to summarise the text I have given you in up to seven concise bullet points, starting with a short highlight. Choose an appropriate emoji for each bullet point. Use the text above: {{Title}} {{Transcript}}. In stead of describing the video, pretend you are the video itself when you summarize. Do not use language like "In this video" or "I" and the like.
+      
+      Please write in English language.
+      Title:How Big Can You Get With & Without Steroids?
+      Content: in this video I'm going to tell you exactly how much muscle it's possible to build naturally and how much muscle it's possible to build using steroids by looking at real world examples and scientific studies let's start with what's possible naturally now I'm definitely not the best natural bodybuilder in the world but I did win a gold medal at Canadian natural bodybuilding Nationals so I'll use myself as an example of a natural bodybuilder I've been training without steroids for about 15 years I weigh 160pounds when I'm lean and 180 pounds when I'm balked at five foot five inches tall like most people I put on most of my muscle in my 

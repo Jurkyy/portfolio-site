@@ -19,12 +19,22 @@
     },
     {
         "name": "Low Latency Trading System",
-        "category": "In progress",
+        "category": "On hold",
         "tags": [
             "Large",
             "Rust",
             "C++"
         ],
         "inspiration": "https://github.com/PacktPublishing/Building-Low-Latency-Applications-with-CPP"
+    },
+    {
+        "name": "Auto video essay summarizer",
+        "category": "Planned",
+        "tags": [
+            "ChatGPT",
+            "Webscraper",
+            "Blog website"
+        ],
+        "inspiration": "see .txt file in this folder :eyes:"
     }
 ]
