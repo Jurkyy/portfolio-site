@@ -8,7 +8,7 @@ interface Props {
 const { href, name, description } = Astro.props;
 ---
 
-<a href={href} download={name}>{description}</a>
+<a aria-label="Open P D F file" href={href}>{description}</a>
 
 <style>
   a {
