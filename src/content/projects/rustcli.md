@@ -9,6 +9,7 @@ tags:
   - Rust
   - CLI
 children: [{title: rcat}, {title: rshell}]
+popularity: 57
 ---
 
 This collection comprises a variety of Rust-based Command Line Interface (CLI) tools and related projects. The project previews above are arranged in descending order, reflecting their respective chronological order.

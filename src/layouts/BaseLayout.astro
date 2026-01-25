@@ -6,6 +6,8 @@
 import MainHead from "../components/MainHead.astro";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
+import MatrixRain from "../components/MatrixRain.astro";
+import ScanLines from "../components/ScanLines.astro";
 import { ViewTransitions } from "astro:transitions";
 
 interface Props {
@@ -22,6 +24,8 @@ const { title, description } = Astro.props;
   </head>
   <body
     ><ViewTransitions />
+    <MatrixRain opacity={0.04} speed={0.4} />
+    <ScanLines opacity={0.02} lineHeight={2} />
     <div class="stack backgrounds">
       <Nav />
       <slot />
@@ -156,6 +160,10 @@ const { title, description } = Astro.props;
 
     <script>
       //   import "../scripts/waves.ts";
+    </script>
+
+    <script>
+      import "../scripts/interactions.ts";
     </script>
   </body>
 </html>

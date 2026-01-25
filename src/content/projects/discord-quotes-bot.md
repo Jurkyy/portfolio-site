@@ -10,9 +10,10 @@ tags:
   - Bot
   - Data analysis
 size: Small
+popularity: 50
 ---
 
-This is a discord quotes bot that can post, analyse and search for specific posts made in a discord guild. 
+This is a Discord quotes bot that can post, analyze, and search for specific posts made in a Discord guild. 
 The current `master` branch is made for a Discord of a friend of mine. You can find the codebase for it [here](https://github.com/Jurkyy/discord-quote-bot).
 
 #### Features:

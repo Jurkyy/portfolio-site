@@ -12,7 +12,8 @@ export const collections = {
 			children: z.array(z.object({
 				title: z.string(),
 			})).optional(),
-			size: z.string().optional()
+			size: z.string().optional(),
+			popularity: z.number().optional().default(50)
 		}),
 	}),
 };

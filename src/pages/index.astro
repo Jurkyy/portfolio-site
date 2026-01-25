@@ -11,16 +11,17 @@ import Hero from "../components/Hero.astro";
 import Icon from "../components/Icon.astro";
 import Pill from "../components/Pill.astro";
 import PortfolioPreview from "../components/PortfolioPreview.astro";
+import GlitchText from "../components/GlitchText.astro";
 
 // Page section components
 import ContactCTA from "../components/ContactCTA.astro";
 import Skills from "../components/Skills.astro";
 
-// Content Fetching: List four most recent work projects
+// Content Fetching: List top 3 most popular projects
 const projects = (await getCollection("projects"))
 	.filter((project) => !project.slug.includes("/"))
-	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
-	.slice(0, 4);
+	.sort((a, b) => (b.data.popularity ?? 50) - (a.data.popularity ?? 50))
+	.slice(0, 3);
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
@@ -32,8 +33,9 @@ const projects = (await getCollection("projects"))
 			<header class="hero">
 				<Hero
 					title="Hello, my name is Wolfgang L. Bubberman"
-					tagline="I am a Software Engineer who is currently based in Amsterdam"
+					tagline="I am a Software Engineer who is currently based in London"
 					align="start"
+					typing={true}
 				>
 					<div class="roles">
 						<Pill>
@@ -60,7 +62,7 @@ const projects = (await getCollection("projects"))
 		<main class="wrapper stack gap-20 lg:gap-48">
 			<section class="section with-background with-cta">
 				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Selected Projects</h3>
+					<GlitchText text="Selected Projects" tag="h3" />
 					<p>
 						Take a look below at some of my featured work from the
 						past few years.
@@ -89,7 +91,7 @@ const projects = (await getCollection("projects"))
 
 			<section class="section with-background bg-variant">
 				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Interests</h3>
+					<GlitchText text="Interests" tag="h3" />
 					<p>
 						I have a diverse range of interests, some of which
 						include:
@@ -103,8 +105,10 @@ const projects = (await getCollection("projects"))
 								"Coding",
 								"Side Channel Analysis & Security",
 								"DevOps",
+								"AI/LLMs",
+								"Terminal Graphics",
+								"Game Development",
 								"Powerlifting",
-								"Deep Learning & LLM",
 							].map((brand) => (
 								<li class="mention-card">
 									<p>{brand}</p>
@@ -136,8 +140,15 @@ const projects = (await getCollection("projects"))
 		aspect-ratio: 5 / 4;
 		object-fit: cover;
 		object-position: top;
-		border-radius: 1.5rem;
-		box-shadow: var(--shadow-md);
+		border-radius: var(--radius-xl);
+		box-shadow: var(--shadow-lg);
+		border: 1px solid var(--glass-border);
+		transition: all var(--transition-normal);
+	}
+
+	.hero img:hover {
+		box-shadow: var(--shadow-lg), var(--glow-accent);
+		transform: scale(1.02);
 	}
 
 	@media (min-width: 50em) {
@@ -152,6 +163,7 @@ const projects = (await getCollection("projects"))
 			margin-top: 0.5rem;
 			display: flex;
 			gap: 0.5rem;
+			flex-wrap: wrap;
 		}
 
 		.hero img {
@@ -201,9 +213,11 @@ const projects = (await getCollection("projects"))
 		max-width: 50ch;
 		font-size: var(--text-md);
 		color: var(--gray-300);
+		line-height: var(--leading-relaxed);
 	}
 
-	.section-header h3 {
+	.section-header h3,
+	.section-header :global(.glitch) {
 		font-size: var(--text-2xl);
 	}
 
@@ -223,7 +237,8 @@ const projects = (await getCollection("projects"))
 			font-size: var(--text-lg);
 		}
 
-		.section-header h3 {
+		.section-header h3,
+		.section-header :global(.glitch) {
 			font-size: var(--text-4xl);
 		}
 
@@ -249,16 +264,27 @@ const projects = (await getCollection("projects"))
 		justify-content: center;
 		align-items: center;
 		text-align: center;
-		border: 1px solid var(--gray-800);
-		border-radius: 1.5rem;
+		border: 1px solid var(--glass-border);
+		border-radius: var(--radius-xl);
 		color: var(--gray-300);
-		background: var(--gradient-subtle);
+		background: var(--glass-bg);
+		backdrop-filter: blur(var(--glass-blur));
+		-webkit-backdrop-filter: blur(var(--glass-blur));
 		box-shadow: var(--shadow-sm);
+		font-weight: 500;
+		transition: all var(--transition-normal);
+	}
+
+	.mention-card:hover {
+		transform: translateY(-4px);
+		box-shadow: var(--shadow-md), var(--glow-secondary);
+		border-color: var(--accent-secondary-overlay);
+		color: var(--gray-100);
 	}
 
 	@media (min-width: 50em) {
 		.mention-card {
-			border-radius: 1.5rem;
+			border-radius: var(--radius-xl);
 			height: 9.5rem;
 		}
 	}

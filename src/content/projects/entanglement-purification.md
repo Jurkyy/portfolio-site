@@ -1,6 +1,6 @@
 ---
 title: Quantum Entanglement Purification
-publishDate: 2023-08-05 00:00:00
+publishDate: 2023-05-08 00:00:00
 img: /assets/entanglement_purification.jpg
 img_alt: Illustration of quantum entanglement.
 description: |
@@ -10,6 +10,7 @@ tags:
   - Entanglement Purification
   - Python
 size: Medium
+popularity: 70
 ---
 
 This project focuses on the implementation of quantum entanglement purification protocols, specifically the DEJMPS and 3 → 1 distillation protocols. The aim was to explore, visualize and analyze the differences between these purification methods and understand their respective advantages and disadvantages.

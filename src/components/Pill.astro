@@ -6,11 +6,19 @@
 		padding: 0.5rem 1rem;
 		gap: 0.5rem;
 		color: var(--accent-text-over);
-		border: 1px solid var(--accent-regular);
-		background-color: var(--accent-regular);
-		border-radius: 999rem;
+		border: 1px solid transparent;
+		background: var(--gradient-accent);
+		border-radius: var(--radius-full);
 		font-size: var(--text-md);
+		font-weight: 500;
 		line-height: 1.35;
 		white-space: nowrap;
+		box-shadow: var(--glow-accent);
+		transition: all var(--transition-fast);
+	}
+
+	.pill:hover {
+		transform: translateY(-1px);
+		box-shadow: var(--glow-accent-strong);
 	}
 </style>

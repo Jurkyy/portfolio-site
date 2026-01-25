@@ -7,15 +7,13 @@ import ContactCTA from "../components/ContactCTA.astro";
 import PortfolioPreview from "../components/PortfolioPreview.astro";
 import Hero from "../components/Hero.astro";
 import Grid from "../components/Grid.astro";
-import CallToAction from "../components/CallToAction.astro";
-import Icon from "../components/Icon.astro";
-
 const projects = (await getCollection("projects"))
   .filter((entry) => !entry.slug.includes("/"))
   .sort((a, b) => {
-    const dateA = new Date(a.data.publishDate);
-    const dateB = new Date(b.data.publishDate);
-    return dateB.valueOf() - dateA.valueOf();
+    // Default sort by popularity (higher = first)
+    const popA = a.data.popularity ?? 50;
+    const popB = b.data.popularity ?? 50;
+    return popB - popA;
   });
 ---
 
@@ -25,21 +23,11 @@ const projects = (await getCollection("projects"))
 >
   <div class="stack gap-20">
     <main class="wrapper stack gap-8">
-      <div class="cta">
-        <div class="column-left">
-          <Hero
-            title="My Projects"
-            tagline="See some of my favourite projects below to get an idea of my past experience."
-            align="start"
-          />
-        </div>
-        <div class="column-right">
-          <CallToAction href="/projects/planner">
-            View my current projects!
-            <Icon icon="arrow-right" size="1.2em" />
-          </CallToAction>
-        </div>
-      </div>
+      <Hero
+        title="My Projects"
+        tagline="See some of my favourite projects below to get an idea of my past experience."
+        align="start"
+      />
 
       <Grid variant="offset">
         {
@@ -54,40 +42,4 @@ const projects = (await getCollection("projects"))
     <ContactCTA />
   </div>
 
-  <style>
-    .cta {
-      display: flex;
-      flex-direction: column; /* On mobile, stack the columns vertically */
-      align-items: center; /* Center items horizontally on mobile */
-      justify-content: center;
-    }
-
-    .column-left {
-      width: 100%; /* Take up the full width on mobile */
-      order: 1; /* Change the order to display column-left below on mobile */
-    }
-
-    .column-right {
-      width: 100%; /* Take up the full width on mobile */
-      order: 2; /* Change the order to display column-right above on mobile */
-      padding: 10px 80px;
-    }
-
-    @media (min-width: 768px) {
-      /* Media query for screens wider than 768px */
-      .cta {
-        flex-direction: row; /* Revert to horizontal layout on larger screens */
-      }
-
-      .column-left,
-      .column-right {
-        width: auto; /* Restore the width for larger screens */
-        order: initial; /* Restore the default order for larger screens */
-      }
-
-      .column-right {
-        padding-top: 0; /* Remove the space between columns on larger screens */
-      }
-    }
-  </style>
 </BaseLayout>

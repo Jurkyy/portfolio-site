@@ -14,16 +14,19 @@ const { href } = Astro.props;
 		display: flex;
 		place-content: center;
 		text-align: center;
-		padding: 0.56em 2em;
+		padding: 0.75em 2em;
 		gap: 0.8em;
 		color: var(--accent-text-over);
 		text-decoration: none;
 		line-height: 1.1;
-		border-radius: 999rem;
+		border-radius: var(--radius-full);
 		overflow: hidden;
 		background: var(--gradient-accent-orange);
 		box-shadow: var(--shadow-md);
 		white-space: nowrap;
+		font-weight: 600;
+		letter-spacing: var(--tracking-wide);
+		transition: all var(--transition-normal);
 	}
 
 	@media (min-width: 20em) {
@@ -32,19 +35,45 @@ const { href } = Astro.props;
 		}
 	}
 
-	/* Overlay for hover effects. */
+	/* Glow effect on hover */
+	a:hover,
+	a:focus {
+		transform: translateY(-2px);
+		box-shadow: var(--shadow-lg), var(--glow-accent);
+	}
+
+	/* Shimmer overlay effect */
+	a::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(
+			120deg,
+			transparent 30%,
+			hsla(var(--gray-999-basis), 0.2) 50%,
+			transparent 70%
+		);
+		transform: translateX(-100%);
+		transition: transform 0.6s ease;
+	}
+
+	a:hover::before {
+		transform: translateX(100%);
+	}
+
+	/* Overlay for additional hover effects */
 	a::after {
 		content: '';
 		position: absolute;
 		inset: 0;
 		pointer-events: none;
-		transition: background-color var(--theme-transition);
+		transition: background-color var(--transition-fast);
 		mix-blend-mode: overlay;
 	}
 
 	a:focus::after,
 	a:hover::after {
-		background-color: hsla(var(--gray-999-basis), 0.3);
+		background-color: hsla(var(--gray-999-basis), 0.15);
 	}
 
 	@media (min-width: 50em) {

@@ -25,10 +25,12 @@ export async function getStaticPaths() {
 }
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+
+// Get child project titles from frontmatter (if this is a collection)
+const childTitles = entry.data.children?.map((child: { title: string }) => child.title) || [];
+
 const projects = (await getCollection("projects"))
-  .filter((project) =>
-    project.slug.includes("/" + entry.data.tags[0].toLowerCase()[0])
-  )
+  .filter((project) => childTitles.includes(project.data.title))
   .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
 
 let transition_id: string = entry.slug;
@@ -83,11 +85,17 @@ if (entry.slug.includes("/")) {
 <style>
   header {
     padding-bottom: 2.5rem;
-    border-bottom: 1px solid var(--gray-800);
+    border-bottom: 1px solid var(--glass-border);
   }
 
   .back-link {
     display: none;
+    color: var(--gray-300);
+    transition: all var(--transition-fast);
+  }
+
+  .back-link:hover {
+    color: var(--accent-secondary-dark);
   }
 
   .details {
@@ -102,11 +110,14 @@ if (entry.slug.includes("/")) {
   .tags {
     display: flex;
     gap: 0.5rem;
+    flex-wrap: wrap;
   }
 
   .description {
     font-size: var(--text-lg);
     max-width: 54ch;
+    color: var(--gray-300);
+    line-height: var(--leading-relaxed);
   }
 
   .content {
@@ -127,10 +138,16 @@ if (entry.slug.includes("/")) {
   }
 
   .content :global(img) {
-    border-radius: 1.5rem;
-    box-shadow: var(--shadow-sm);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
     background: var(--gradient-subtle);
-    border: 1px solid var(--gray-800);
+    border: 1px solid var(--glass-border);
+    transition: all var(--transition-normal);
+  }
+
+  .content :global(img:hover) {
+    box-shadow: var(--shadow-lg), var(--glow-accent);
+    transform: scale(1.01);
   }
 
   .content :global(blockquote) {
@@ -141,13 +158,16 @@ if (entry.slug.includes("/")) {
     padding-inline-start: 1.5rem;
     border-inline-start: 0.25rem solid var(--accent-dark);
     color: var(--gray-0);
+    background: var(--accent-subtle-overlay);
+    padding: 1rem 1.5rem;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
   }
 
   .back-link,
   .content :global(a) {
     text-decoration: 1px solid underline transparent;
     text-underline-offset: 0.25em;
-    transition: text-decoration-color var(--theme-transition);
+    transition: all var(--transition-fast);
   }
 
   .back-link:hover,
@@ -155,6 +175,7 @@ if (entry.slug.includes("/")) {
   .content :global(a:hover),
   .content :global(a:focus) {
     text-decoration-color: currentColor;
+    color: var(--accent-secondary-dark);
   }
 
   @media (min-width: 50em) {

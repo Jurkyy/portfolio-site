@@ -1,6 +1,6 @@
 ---
 title: Forze 9
-publishDate: 2022-07-04 00:00:00
+publishDate: 2022-04-07 00:00:00
 img: /assets/forze9.png
 img_alt: The Forze 9 with the doors open, in a construction hall.
 description: |
@@ -11,6 +11,7 @@ tags:
   - Racing
   - Hydrogen
 size: Huge
+popularity: 90
 ---
 
 Working on this codebase has been an incredible experience for me. It is by far the largest codebase I have ever had the opportunity to work on, with over 2 million lines of code. This presented a fantastic challenge and allowed me to learn extensively about embedded programming and C++ throughout the project.

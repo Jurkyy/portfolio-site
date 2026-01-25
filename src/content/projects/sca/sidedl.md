@@ -1,8 +1,8 @@
 ---
 title: SideDL
-publishDate: 2022-07-04 00:00:00
+publishDate: 2022-04-07 00:00:00
 img: /assets/sidedl.jpg
-img_alt: A figure showcasing the the difference in how amount of traces influences Accuracy. 
+img_alt: A figure showcasing the difference in how the amount of traces influences accuracy. 
 description: |
     Advanced DL application for researching Side-Channel Analysis methods.
 tags:
@@ -25,4 +25,4 @@ To achieve its comprehensive functionality, SideDL is organized into several pac
 
 SideDL represents a significant advancement in the field of side-channel analysis for Deep Learning and AI methods. With its extensive capabilities, seamless dataset integration, automated neural network optimization, and diverse analysis tools, SideDL empowers researchers and practitioners to conduct in-depth analyses, strengthen the security of their AI systems, and drive innovation in the field. Despite its underexposure, SideDL stands as a remarkable achievement and a testament to the possibilities of leveraging AI for side-channel analysis.
 
-As always, you can find the source code of this project, and the applcation itself [here](https://github.com/Jurkyy/sidedl)
+As always, you can find the source code of this project, and the application itself [here](https://github.com/Jurkyy/sidedl)

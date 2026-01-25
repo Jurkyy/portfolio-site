@@ -14,7 +14,8 @@ import Icon from "./Icon.astro";
 		<p>
 			From backend to frontend, I possess a wide range of tech skills. I
 			excel in languages like Rust, C++, and Python, and have hands-on
-			experience with Docker and Kubernetes.
+			experience with Docker, Kubernetes, and AI/ML. Currently exploring
+			game development with Bevy and terminal graphics.
 		</p>
 	</div>
 	<div class="stack gap-2 lg:gap-4">
@@ -49,11 +50,13 @@ import Icon from "./Icon.astro";
 
 <style>
 	.box {
-		border: 1px solid var(--gray-800);
-		border-radius: 0.75rem;
+		border: 1px solid var(--glass-border);
+		border-radius: var(--radius-md);
 		padding: 1.5rem;
-		background-color: var(--gray-999_40);
-		box-shadow: var(--shadow-sm);
+		background: var(--glass-bg);
+		backdrop-filter: blur(var(--glass-blur));
+		-webkit-backdrop-filter: blur(var(--glass-blur));
+		box-shadow: var(--shadow-md);
 	}
 
 	.skills {
@@ -68,11 +71,24 @@ import Icon from "./Icon.astro";
 
 	.skills p {
 		color: var(--gray-400);
+		line-height: var(--leading-relaxed);
+	}
+
+	/* Hover effect for skill sections */
+	.skills > div {
+		padding: 1rem;
+		border-radius: var(--radius-md);
+		transition: all var(--transition-normal);
+	}
+
+	.skills > div:hover {
+		background: var(--accent-subtle-overlay);
+		transform: translateY(-2px);
 	}
 
 	@media (min-width: 50em) {
 		.box {
-			border-radius: 1.5rem;
+			border-radius: var(--radius-xl);
 			padding: 2.5rem;
 		}
 

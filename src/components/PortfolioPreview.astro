@@ -35,20 +35,21 @@ if (slug.includes("/")) {
     grid-template: auto 1fr / auto 1fr;
     height: 11rem;
     background: var(--gradient-subtle);
-    border: 1px solid var(--gray-800);
-    border-radius: 0.75rem;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
     overflow: hidden;
     box-shadow: var(--shadow-sm);
     text-decoration: none;
     font-family: var(--font-brand);
     font-size: var(--text-lg);
     font-weight: 500;
-    transition: transform 200ms ease-in-out;
+    transition: all var(--transition-normal);
   }
 
   .card:hover {
-    box-shadow: var(--shadow-md);
-    transform: scale(1.05);
+    box-shadow: var(--shadow-lg), var(--glow-accent);
+    transform: translateY(-4px) scale(1.02);
+    border-color: var(--accent-overlay);
   }
 
   .title {
@@ -56,9 +57,13 @@ if (slug.includes("/")) {
     z-index: 1;
     margin: 0.5rem;
     padding: 0.5rem 1rem;
-    background: var(--gray-999);
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
     color: var(--gray-200);
-    border-radius: 0.375rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--glass-border);
+    transition: all var(--transition-fast);
   }
 
   .size {
@@ -66,9 +71,11 @@ if (slug.includes("/")) {
     z-index: 1;
     margin: 0.5rem;
     padding: 0.5rem 1rem;
-    background: var(--accent-light);
+    background: var(--gradient-accent);
     color: var(--gray-50);
-    border-radius: 0.375rem;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+    box-shadow: var(--glow-accent);
   }
 
   .collection {
@@ -76,14 +83,17 @@ if (slug.includes("/")) {
     z-index: 1;
     margin: 0.5rem;
     padding: 0.5rem 1rem;
-    background: var(--gradient-stop-1);
+    background: var(--gradient-cyber);
     color: var(--gray-50);
-    border-radius: 0.375rem;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+    box-shadow: var(--glow-secondary);
   }
 
-  .title:hover {
-    transform: scale(1.025);
-    transition: transform 50ms ease-in-out;
+  .card:hover .title {
+    background: var(--glass-bg);
+    border-color: var(--accent-overlay);
+    color: var(--gray-100);
   }
 
   img {
@@ -91,16 +101,21 @@ if (slug.includes("/")) {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform var(--transition-slow);
+  }
+
+  .card:hover img {
+    transform: scale(1.05);
   }
 
   @media (min-width: 50em) {
     .card {
       height: 22rem;
-      border-radius: 1.5rem;
+      border-radius: var(--radius-xl);
     }
 
     .title {
-      border-radius: 0.9375rem;
+      border-radius: var(--radius-md);
     }
   }
 

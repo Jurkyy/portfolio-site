@@ -1,6 +1,6 @@
 ---
 title: sssheets.nl
-publishDate: 2023-07-04 00:00:00
+publishDate: 2023-04-07 00:00:00
 img: /assets/sssheets.png
 img_alt: An overview of the sssheets.nl website.
 description: |
@@ -9,6 +9,7 @@ tags:
   - Powerlifting
   - Svelte
 size: Large
+popularity: 61
 ---
 
 We have developed a dynamic website tailored for powerlifting coaching, aimed at overcoming the limitations of conventional tools like Google Sheets or Excel. Our website provides athletes and coaches with a range of features and analytics that significantly enhance their training experience. In this article, we will explore the key functionalities and advantages of our website, which offers a seamless mobile experience that traditional spreadsheet-based solutions lack.

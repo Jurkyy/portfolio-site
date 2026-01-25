@@ -1,6 +1,6 @@
 ---
 title: Novel Evaluation Metric
-publishDate: 2021-09-04 00:00:00
+publishDate: 2021-04-09 00:00:00
 img: /assets/novel-evaluation-metric.jpg
 img_alt: A small overview of 100 and 200 epochs with a CNN architecture and MLP architecture, using the novel-evaluation metric on a software-based encryption power signal data-set.
 description: |
@@ -11,7 +11,7 @@ tags:
   - Deep learning
 size: Medium
 ---
-One of the more extensive projects I have done into Side-Channel Anaylsis (SCA) is into the evaluation metrics a Deep Learning Algorithm would to assess the performance and effectiveness of the model it procudes. In this work two former, fellow students (Sengim Karayalcin and Jari Bervoets) and I explore designing a more efficient self-developed metric called Log-Likelihood Ratio (LLR). You can find the code for this project [here](https://github.com/Jurkyy/novel-evaluation-metric) on Github. There you will find all the models that we used, and a setup explanation if you want to reproduce our results. You should also note that we have also extensively discussed our results in a paper we wrote, you can download it <a href="/assets/novel-evaluation-metric.pdf" download>here</a> and read the abstact below: 
+One of the more extensive projects I have done into Side-Channel Analysis (SCA) is into the evaluation metrics a Deep Learning Algorithm would to assess the performance and effectiveness of the model it procudes. In this work two former, fellow students (Sengim Karayalcin and Jari Bervoets) and I explore designing a more efficient self-developed metric called Log-Likelihood Ratio (LLR). You can find the code for this project [here](https://github.com/Jurkyy/novel-evaluation-metric) on Github. There you will find all the models that we used, and a setup explanation if you want to reproduce our results. You should also note that we have also extensively discussed our results in a paper we wrote, you can download it <a href="/assets/novel-evaluation-metric.pdf" download>here</a> and read the abstact below: 
 
 The field of side channel analysis (SCA) has increasingly been using Deep Learning
 to enhance the attacks. However, attack evaluation metrics, like Guessing Entropy

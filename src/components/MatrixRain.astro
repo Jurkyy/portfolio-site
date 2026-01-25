@@ -1,0 +1,150 @@
+---
+/**
+ * MatrixRain.astro
+ * A subtle matrix-style falling characters effect using canvas.
+ * Respects prefers-reduced-motion and works in both light and dark modes.
+ */
+interface Props {
+  opacity?: number;
+  speed?: number;
+}
+
+const { opacity = 0.03, speed = 0.5 } = Astro.props;
+---
+
+<canvas
+  id="matrix-rain"
+  class="matrix-rain"
+  data-opacity={opacity}
+  data-speed={speed}
+></canvas>
+
+<style>
+  .matrix-rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .matrix-rain {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  function initMatrixRain() {
+    const canvas = document.getElementById('matrix-rain') as HTMLCanvasElement;
+    if (!canvas) return;
+
+    // Check for reduced motion preference
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      canvas.style.display = 'none';
+      return;
+    }
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    // Get configuration from data attributes
+    const baseOpacity = parseFloat(canvas.dataset.opacity || '0.03');
+    const speed = parseFloat(canvas.dataset.speed || '0.5');
+
+    // Matrix characters - mix of katakana, latin, and numbers
+    const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ<>{}[]|/\\+=*&^%$#@!';
+    const charArray = chars.split('');
+
+    let columns: number;
+    let drops: number[];
+    let fontSize = 14;
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      columns = Math.floor(canvas.width / fontSize);
+      drops = [];
+      for (let i = 0; i < columns; i++) {
+        drops[i] = Math.random() * -100;
+      }
+    }
+
+    resize();
+    window.addEventListener('resize', resize);
+
+    // Check theme for color
+    function getColor() {
+      const isDark = document.documentElement.classList.contains('theme-dark');
+      return isDark ? '#00ff41' : '#7611a6'; // Green for dark, purple for light
+    }
+
+    function draw() {
+      // Semi-transparent black to create fade effect
+      const isDark = document.documentElement.classList.contains('theme-dark');
+      ctx.fillStyle = isDark ? `rgba(9, 11, 17, ${0.05})` : `rgba(255, 255, 255, ${0.05})`;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = getColor();
+      ctx.font = `${fontSize}px monospace`;
+      ctx.globalAlpha = baseOpacity * 3; // Multiply for visibility since we're fading
+
+      for (let i = 0; i < drops.length; i++) {
+        // Random character
+        const char = charArray[Math.floor(Math.random() * charArray.length)];
+        const x = i * fontSize;
+        const y = drops[i] * fontSize;
+
+        // Draw character with varying opacity based on position
+        const distanceFromTop = drops[i];
+        const fadeAlpha = Math.min(1, distanceFromTop / 10);
+        ctx.globalAlpha = baseOpacity * 3 * fadeAlpha;
+
+        ctx.fillText(char, x, y);
+
+        // Reset drop to top with some randomness
+        if (y > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i] += speed;
+      }
+    }
+
+    // Animate at a slower rate for subtlety
+    let lastTime = 0;
+    const frameInterval = 50; // ~20fps for subtle effect
+
+    function animate(currentTime: number) {
+      if (currentTime - lastTime >= frameInterval) {
+        draw();
+        lastTime = currentTime;
+      }
+      requestAnimationFrame(animate);
+    }
+
+    requestAnimationFrame(animate);
+
+    // Listen for theme changes
+    const observer = new MutationObserver(() => {
+      // Clear canvas on theme change
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+  }
+
+  // Initialize on load and after view transitions
+  document.addEventListener('astro:page-load', initMatrixRain);
+  if (document.readyState === 'complete') {
+    initMatrixRain();
+  } else {
+    document.addEventListener('DOMContentLoaded', initMatrixRain);
+  }
+</script>

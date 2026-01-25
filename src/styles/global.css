@@ -1,6 +1,6 @@
 /* Global variables */
 :root {
-	/* Colors */
+	/* Colors - Light mode */
 	--gray-0: #090b11;
 	--gray-50: #141925;
 	--gray-100: #283044;
@@ -16,12 +16,19 @@
 	--gray-999_40: hsla(var(--gray-999-basis), 0.4);
 	--gray-999: #ffffff;
 
-	--accent-light: #c561f6;
-	--accent-regular: #7611a6;
-	--accent-dark: #1c0056;
-	--accent-overlay: hsla(280, 89%, 67%, 0.33);
-	--accent-subtle-overlay: var(--accent-overlay);
+	/* Primary accent - Vibrant purple */
+	--accent-light: #d946ef;
+	--accent-regular: #a855f7;
+	--accent-dark: #7c3aed;
+	--accent-overlay: hsla(280, 85%, 65%, 0.25);
+	--accent-subtle-overlay: hsla(280, 85%, 65%, 0.15);
 	--accent-text-over: var(--gray-999);
+
+	/* Secondary accent - Cyan/Teal for hacker aesthetic */
+	--accent-secondary-light: #22d3ee;
+	--accent-secondary: #06b6d4;
+	--accent-secondary-dark: #0891b2;
+	--accent-secondary-overlay: hsla(185, 85%, 50%, 0.25);
 
 	--link-color: var(--accent-regular);
 
@@ -31,46 +38,93 @@
 	--gradient-stop-3: var(--accent-dark);
 	--gradient-subtle: linear-gradient(150deg, var(--gray-900) 19%, var(--gray-999) 150%);
 	--gradient-accent: linear-gradient(
-		150deg,
+		135deg,
 		var(--gradient-stop-1),
 		var(--gradient-stop-2),
 		var(--gradient-stop-3)
 	);
 	--gradient-accent-orange: linear-gradient(
-		150deg,
-		#ca7879,
+		135deg,
+		var(--accent-secondary),
 		var(--accent-regular),
 		var(--accent-dark)
 	);
 	--gradient-stroke: linear-gradient(180deg, var(--gray-900), var(--gray-700));
+	--gradient-cyber: linear-gradient(
+		135deg,
+		var(--accent-secondary),
+		var(--accent-regular)
+	);
 
-	/* Shadows */
-	--shadow-sm: 0px 6px 3px rgba(9, 11, 17, 0.01), 0px 4px 2px rgba(9, 11, 17, 0.01),
-		0px 2px 2px rgba(9, 11, 17, 0.02), 0px 0px 1px rgba(9, 11, 17, 0.03);
-	--shadow-md: 0px 28px 11px rgba(9, 11, 17, 0.01), 0px 16px 10px rgba(9, 11, 17, 0.03),
-		0px 7px 7px rgba(9, 11, 17, 0.05), 0px 2px 4px rgba(9, 11, 17, 0.06);
-	--shadow-lg: 0px 62px 25px rgba(9, 11, 17, 0.01), 0px 35px 21px rgba(9, 11, 17, 0.05),
-		0px 16px 16px rgba(9, 11, 17, 0.1), 0px 4px 9px rgba(9, 11, 17, 0.12);
+	/* Modern Shadows - Softer, more diffused */
+	--shadow-sm: 0 1px 2px rgba(9, 11, 17, 0.04),
+		0 2px 4px rgba(9, 11, 17, 0.04),
+		0 4px 8px rgba(9, 11, 17, 0.04);
+	--shadow-md: 0 2px 4px rgba(9, 11, 17, 0.03),
+		0 4px 8px rgba(9, 11, 17, 0.04),
+		0 8px 16px rgba(9, 11, 17, 0.05),
+		0 16px 32px rgba(9, 11, 17, 0.05);
+	--shadow-lg: 0 4px 8px rgba(9, 11, 17, 0.03),
+		0 8px 16px rgba(9, 11, 17, 0.04),
+		0 16px 32px rgba(9, 11, 17, 0.06),
+		0 32px 64px rgba(9, 11, 17, 0.08);
 
-	/* Text Sizes */
+	/* Glow effects */
+	--glow-accent: 0 0 20px hsla(280, 85%, 65%, 0.3),
+		0 0 40px hsla(280, 85%, 65%, 0.15);
+	--glow-secondary: 0 0 20px hsla(185, 85%, 50%, 0.3),
+		0 0 40px hsla(185, 85%, 50%, 0.15);
+	--glow-accent-strong: 0 0 30px hsla(280, 85%, 65%, 0.5),
+		0 0 60px hsla(280, 85%, 65%, 0.25);
+
+	/* Glass effect variables */
+	--glass-bg: hsla(var(--gray-999-basis), 0.7);
+	--glass-bg-subtle: hsla(var(--gray-999-basis), 0.5);
+	--glass-border: hsla(var(--gray-999-basis), 0.3);
+	--glass-blur: 12px;
+
+	/* Text Sizes - Improved hierarchy */
+	--text-xs: 0.75rem;
 	--text-sm: 0.875rem;
 	--text-base: 1rem;
 	--text-md: 1.125rem;
 	--text-lg: 1.25rem;
-	--text-xl: 1.625rem;
-	--text-2xl: 2.125rem;
-	--text-3xl: 2.625rem;
-	--text-4xl: 3.5rem;
-	--text-5xl: 4.5rem;
+	--text-xl: 1.5rem;
+	--text-2xl: 2rem;
+	--text-3xl: 2.5rem;
+	--text-4xl: 3.25rem;
+	--text-5xl: 4.25rem;
 
 	/* Fonts */
 	--font-system: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
 		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	--font-body: 'Public Sans', var(--font-system);
 	--font-brand: Rubik, var(--font-system);
+	--font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+
+	/* Letter spacing */
+	--tracking-tight: -0.025em;
+	--tracking-normal: 0;
+	--tracking-wide: 0.025em;
+	--tracking-wider: 0.05em;
+
+	/* Line heights */
+	--leading-tight: 1.2;
+	--leading-normal: 1.5;
+	--leading-relaxed: 1.7;
+
+	/* Border radius */
+	--radius-sm: 0.375rem;
+	--radius-md: 0.75rem;
+	--radius-lg: 1rem;
+	--radius-xl: 1.5rem;
+	--radius-full: 999rem;
 
 	/* Transitions */
 	--theme-transition: 0.2s ease-in-out;
+	--transition-fast: 0.15s ease-out;
+	--transition-normal: 0.25s ease-out;
+	--transition-slow: 0.4s ease-out;
 }
 
 :root.theme-dark {
@@ -88,31 +142,62 @@
 	--gray-999-basis: 225, 31%, 5%;
 	--gray-999: #090b11;
 
-	--accent-light: #1c0056;
-	--accent-regular: #7611a6;
-	--accent-dark: #c561f6;
-	--accent-overlay: hsla(280, 89%, 67%, 0.33);
-	--accent-subtle-overlay: hsla(281, 81%, 36%, 0.33);
+	/* Dark mode accents - adjusted for better contrast */
+	--accent-light: #7c3aed;
+	--accent-regular: #a855f7;
+	--accent-dark: #d946ef;
+	--accent-overlay: hsla(280, 85%, 65%, 0.2);
+	--accent-subtle-overlay: hsla(280, 85%, 50%, 0.15);
 	--accent-text-over: var(--gray-0);
+
+	/* Secondary accent - Brighter in dark mode */
+	--accent-secondary-light: #0891b2;
+	--accent-secondary: #06b6d4;
+	--accent-secondary-dark: #22d3ee;
+	--accent-secondary-overlay: hsla(185, 85%, 50%, 0.2);
 
 	--link-color: var(--accent-dark);
 
-	--gradient-stop-1: #4c11c6;
+	--gradient-stop-1: #6366f1;
 	--gradient-subtle: linear-gradient(150deg, var(--gray-900) 19%, var(--gray-999) 81%);
 	--gradient-accent-orange: linear-gradient(
-		150deg,
-		#ca7879,
+		135deg,
+		var(--accent-secondary-dark),
 		var(--accent-regular),
 		var(--accent-light)
 	);
 	--gradient-stroke: linear-gradient(180deg, var(--gray-600), var(--gray-800));
+	--gradient-cyber: linear-gradient(
+		135deg,
+		var(--accent-secondary-dark),
+		var(--accent-dark)
+	);
 
-	--shadow-sm: 0px 6px 3px rgba(255, 255, 255, 0.01), 0px 4px 2px rgba(255, 255, 255, 0.01),
-		0px 2px 2px rgba(255, 255, 255, 0.02), 0px 0px 1px rgba(255, 255, 255, 0.03);
-	--shadow-md: 0px 28px 11px rgba(255, 255, 255, 0.01), 0px 16px 10px rgba(255, 255, 255, 0.03),
-		0px 7px 7px rgba(255, 255, 255, 0.05), 0px 2px 4px rgba(255, 255, 255, 0.06);
-	--shadow-lg: 0px 62px 25px rgba(255, 255, 255, 0.01), 0px 35px 21px rgba(255, 255, 255, 0.05),
-		0px 16px 16px rgba(255, 255, 255, 0.1), 0px 4px 9px rgba(255, 255, 255, 0.12);
+	/* Dark mode shadows with subtle glow */
+	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2),
+		0 2px 4px rgba(0, 0, 0, 0.15),
+		0 4px 8px rgba(0, 0, 0, 0.1);
+	--shadow-md: 0 2px 4px rgba(0, 0, 0, 0.15),
+		0 4px 8px rgba(0, 0, 0, 0.15),
+		0 8px 16px rgba(0, 0, 0, 0.15),
+		0 16px 32px rgba(0, 0, 0, 0.1);
+	--shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.15),
+		0 8px 16px rgba(0, 0, 0, 0.15),
+		0 16px 32px rgba(0, 0, 0, 0.15),
+		0 32px 64px rgba(0, 0, 0, 0.15);
+
+	/* Glow effects - More prominent in dark mode */
+	--glow-accent: 0 0 25px hsla(280, 85%, 65%, 0.35),
+		0 0 50px hsla(280, 85%, 65%, 0.2);
+	--glow-secondary: 0 0 25px hsla(185, 85%, 50%, 0.35),
+		0 0 50px hsla(185, 85%, 50%, 0.2);
+	--glow-accent-strong: 0 0 40px hsla(280, 85%, 65%, 0.5),
+		0 0 80px hsla(280, 85%, 65%, 0.3);
+
+	/* Glass effect - darker variant */
+	--glass-bg: hsla(225, 31%, 8%, 0.75);
+	--glass-bg-subtle: hsla(225, 31%, 8%, 0.5);
+	--glass-border: hsla(225, 31%, 20%, 0.5);
 }
 
 html,
@@ -125,8 +210,11 @@ body {
 	background-color: var(--gray-999);
 	color: var(--gray-200);
 	font-family: var(--font-body);
+	font-size: var(--text-base);
 	-webkit-font-smoothing: antialiased;
-	line-height: 1.5;
+	-moz-osx-font-smoothing: grayscale;
+	line-height: var(--leading-normal);
+	letter-spacing: var(--tracking-normal);
 }
 
 *,
@@ -143,6 +231,13 @@ img {
 
 a {
 	color: var(--link-color);
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.2em;
+	transition: color var(--transition-fast);
+}
+
+a:hover {
+	color: var(--accent-dark);
 }
 
 h1,
@@ -150,10 +245,11 @@ h2,
 h3,
 h4,
 h5 {
-	line-height: 1.1;
+	line-height: var(--leading-tight);
 	font-family: var(--font-brand);
 	font-weight: 600;
 	color: var(--gray-100);
+	letter-spacing: var(--tracking-tight);
 }
 
 h1 {
@@ -174,6 +270,18 @@ h4 {
 
 h5 {
 	font-size: var(--text-xl);
+}
+
+/* Selection styling */
+::selection {
+	background-color: var(--accent-overlay);
+	color: var(--gray-100);
+}
+
+/* Focus styling for accessibility */
+:focus-visible {
+	outline: 2px solid var(--accent-regular);
+	outline-offset: 2px;
 }
 
 /* Utilities */
@@ -251,5 +359,347 @@ h5 {
 	}
 	.lg\:gap-48 {
 		gap: 12rem;
+	}
+}
+
+/* Glass card utility class */
+.glass {
+	background: var(--glass-bg);
+	backdrop-filter: blur(var(--glass-blur));
+	-webkit-backdrop-filter: blur(var(--glass-blur));
+	border: 1px solid var(--glass-border);
+	border-radius: var(--radius-lg);
+}
+
+.glass-subtle {
+	background: var(--glass-bg-subtle);
+	backdrop-filter: blur(var(--glass-blur));
+	-webkit-backdrop-filter: blur(var(--glass-blur));
+	border: 1px solid var(--glass-border);
+	border-radius: var(--radius-lg);
+}
+
+/* Glow utility classes */
+.glow-accent {
+	box-shadow: var(--glow-accent);
+}
+
+.glow-secondary {
+	box-shadow: var(--glow-secondary);
+}
+
+/* Text gradient utility */
+.text-gradient {
+	background: var(--gradient-accent);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.text-gradient-cyber {
+	background: var(--gradient-cyber);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+/* Accent color utilities */
+.text-accent {
+	color: var(--accent-regular);
+}
+
+.text-accent-secondary {
+	color: var(--accent-secondary);
+}
+
+/* ============================================
+   Hacker Theme Animation Utilities
+   ============================================ */
+
+/* Terminal/Monospace text style */
+.terminal-text {
+	font-family: var(--font-mono);
+	letter-spacing: 0.05em;
+}
+
+/* Cyber glow effect on hover */
+.cyber-glow {
+	transition: box-shadow var(--transition-normal), transform var(--transition-normal);
+}
+
+.cyber-glow:hover {
+	box-shadow: var(--glow-accent);
+	transform: translateY(-2px);
+}
+
+/* Neon border effect */
+.neon-border {
+	position: relative;
+}
+
+.neon-border::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	padding: 2px;
+	background: var(--gradient-cyber);
+	-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+	-webkit-mask-composite: xor;
+	mask-composite: exclude;
+	opacity: 0;
+	transition: opacity var(--transition-normal);
+}
+
+.neon-border:hover::after {
+	opacity: 1;
+}
+
+/* Flicker animation for hacker aesthetic */
+@keyframes flicker {
+	0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+		opacity: 1;
+	}
+	20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+		opacity: 0.4;
+	}
+}
+
+.flicker {
+	animation: flicker 3s infinite;
+}
+
+/* Text shadow glow for headings */
+.text-glow {
+	text-shadow: 0 0 10px var(--accent-overlay),
+		0 0 20px var(--accent-overlay),
+		0 0 30px var(--accent-overlay);
+}
+
+:root.theme-dark .text-glow {
+	text-shadow: 0 0 10px var(--accent-secondary-overlay),
+		0 0 20px var(--accent-secondary-overlay),
+		0 0 40px var(--accent-secondary-overlay);
+}
+
+/* Subtle pulse animation */
+@keyframes subtle-pulse {
+	0%, 100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.8;
+	}
+}
+
+.pulse {
+	animation: subtle-pulse 2s ease-in-out infinite;
+}
+
+/* Reduced motion: disable all animations */
+@media (prefers-reduced-motion: reduce) {
+	.flicker,
+	.pulse,
+	.cyber-glow,
+	.neon-border::after {
+		animation: none;
+		transition: none;
+	}
+
+	.cyber-glow:hover {
+		transform: none;
+	}
+}
+
+/* ============================================
+   Interactive Micro-interactions
+   ============================================ */
+
+/* Scroll-triggered animations */
+.scroll-hidden {
+	opacity: 0;
+	transform: translateY(30px);
+}
+
+.scroll-visible {
+	opacity: 1;
+	transform: translateY(0);
+	transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+	transition-delay: var(--stagger-delay, 0s);
+}
+
+/* Fade in from different directions */
+.scroll-hidden.fade-up {
+	transform: translateY(40px);
+}
+
+.scroll-hidden.fade-down {
+	transform: translateY(-40px);
+}
+
+.scroll-hidden.fade-left {
+	transform: translateX(-40px);
+}
+
+.scroll-hidden.fade-right {
+	transform: translateX(40px);
+}
+
+.scroll-hidden.fade-scale {
+	transform: scale(0.9);
+}
+
+.scroll-visible.fade-up,
+.scroll-visible.fade-down,
+.scroll-visible.fade-left,
+.scroll-visible.fade-right,
+.scroll-visible.fade-scale {
+	transform: translate(0, 0) scale(1);
+}
+
+/* Card glow effect that follows cursor */
+.card-glow {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity 0.3s ease-out;
+	border-radius: inherit;
+	z-index: 1;
+}
+
+/* Mouse spotlight effect */
+.mouse-spotlight {
+	position: fixed;
+	width: 400px;
+	height: 400px;
+	pointer-events: none;
+	z-index: 9999;
+	opacity: 0;
+	transition: opacity 0.3s ease-out;
+	background: radial-gradient(
+		circle,
+		hsla(280, 85%, 65%, 0.03) 0%,
+		transparent 70%
+	);
+	border-radius: 50%;
+	mix-blend-mode: screen;
+}
+
+:root.theme-dark .mouse-spotlight {
+	background: radial-gradient(
+		circle,
+		hsla(185, 85%, 50%, 0.04) 0%,
+		transparent 70%
+	);
+}
+
+/* Ripple effect */
+.ripple-effect {
+	position: absolute;
+	border-radius: 50%;
+	background: hsla(var(--gray-999-basis), 0.3);
+	transform: scale(0);
+	animation: ripple-animation 0.6s ease-out forwards;
+	pointer-events: none;
+	z-index: 10;
+}
+
+@keyframes ripple-animation {
+	to {
+		transform: scale(4);
+		opacity: 0;
+	}
+}
+
+/* Image zoom on hover */
+.zoom-image {
+	transition: transform var(--transition-slow);
+	will-change: transform;
+}
+
+.card:hover .zoom-image {
+	transform: scale(1.08);
+}
+
+/* Tilt card perspective container */
+.tilt-card {
+	transform-style: preserve-3d;
+	will-change: transform;
+}
+
+/* Smooth scroll behavior */
+html {
+	scroll-behavior: smooth;
+}
+
+/* Additional hover states for interactive elements */
+.interactive-lift {
+	transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.interactive-lift:hover {
+	transform: translateY(-4px);
+	box-shadow: var(--shadow-lg);
+}
+
+/* Section header animations */
+.section-header {
+	transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Staggered grid animation */
+.grid > * {
+	transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Button press effect */
+button:active,
+a.cta:active,
+.call-to-action:active {
+	transform: scale(0.98);
+}
+
+/* Reduced motion overrides for all new animations */
+@media (prefers-reduced-motion: reduce) {
+	.scroll-hidden {
+		opacity: 1;
+		transform: none;
+	}
+
+	.scroll-visible {
+		transition: none;
+	}
+
+	.card-glow,
+	.mouse-spotlight {
+		display: none;
+	}
+
+	.ripple-effect {
+		animation: none;
+		display: none;
+	}
+
+	.zoom-image {
+		transition: none;
+	}
+
+	.card:hover .zoom-image {
+		transform: none;
+	}
+
+	html {
+		scroll-behavior: auto;
+	}
+
+	.interactive-lift:hover {
+		transform: none;
+	}
+
+	button:active,
+	a.cta:active,
+	.call-to-action:active {
+		transform: none;
 	}
 }

@@ -1,6 +1,6 @@
 ---
 title: "SCA: Side-Channel Analysis"
-publishDate: 2021-02-04 00:00:00
+publishDate: 2021-04-02 00:00:00
 img: /assets/sca.jpg
 img_alt: Showcase of a Side-Channel Analysis graph.
 description: |
@@ -9,9 +9,14 @@ tags:
   - SCA
   - AI & Deep Learning
   - Security
-children: [{title: deep-learning-sca-imbalanced-data}, {title: side-dl}, {title: sca-toolbox}]
+children:
+  - title: SCA thesis
+  - title: Novel Evaluation Metric
+  - title: SideDL
+  - title: SCA Toolbox
+popularity: 95
 ---
-I have done many different projects within the field of Side-Channel Anaylsis (SCA), my MSc Thesis even dug deeper into the subject and made a major improvement to the field. To showcase some of these projects I have made this collection, please see the project previews above, they are in chronological order.
+I have done many different projects within the field of Side-Channel Analysis (SCA), my MSc Thesis even dug deeper into the subject and made a major improvement to the field. To showcase some of these projects I have made this collection, please see the project previews above, they are in chronological order.
 
 If you're not familiar with the field, I would suggest reading the description of SCA and its developments below.
 

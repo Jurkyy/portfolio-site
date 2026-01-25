@@ -152,24 +152,38 @@ const iconLinks: { label: string; href: string; icon: IconProps["icon"] }[] = [
 		line-height: 1.1;
 		color: var(--gray-0);
 		text-decoration: none;
+		transition: color var(--transition-fast);
+	}
+
+	.site-title:hover {
+		color: var(--accent-dark);
 	}
 
 	.menu-button {
 		position: relative;
 		display: flex;
 		border: 0;
-		border-radius: 999rem;
+		border-radius: var(--radius-full);
 		padding: 0.5rem;
 		font-size: 1.5rem;
 		color: var(--gray-300);
-		background: radial-gradient(var(--gray-900), var(--gray-800) 150%);
+		background: var(--glass-bg);
+		backdrop-filter: blur(var(--glass-blur));
+		-webkit-backdrop-filter: blur(var(--glass-blur));
 		box-shadow: var(--shadow-md);
+		cursor: pointer;
+		transition: all var(--transition-fast);
 	}
 
 	.menu-button[aria-expanded="true"] {
 		color: var(--gray-0);
-		background: linear-gradient(180deg, var(--gray-600), transparent),
-			radial-gradient(var(--gray-900), var(--gray-800) 150%);
+		background: var(--glass-bg);
+		box-shadow: var(--glow-accent);
+	}
+
+	.menu-button:hover {
+		color: var(--gray-0);
+		box-shadow: var(--glow-accent);
 	}
 
 	.menu-button[hidden] {
@@ -181,7 +195,7 @@ const iconLinks: { label: string; href: string; icon: IconProps["icon"] }[] = [
 		inset: -1px;
 		content: "";
 		background: var(--gradient-stroke);
-		border-radius: 999rem;
+		border-radius: var(--radius-full);
 		z-index: -1;
 	}
 
@@ -200,14 +214,17 @@ const iconLinks: { label: string; href: string; icon: IconProps["icon"] }[] = [
 		line-height: 1.2;
 		list-style: none;
 		padding: 2rem;
-		background-color: var(--gray-999);
-		border-bottom: 1px solid var(--gray-800);
+		background: var(--glass-bg);
+		backdrop-filter: blur(var(--glass-blur));
+		-webkit-backdrop-filter: blur(var(--glass-blur));
+		border-bottom: 1px solid var(--glass-border);
 	}
 
 	.link {
 		display: inline-block;
 		color: var(--gray-300);
 		text-decoration: none;
+		transition: all var(--transition-fast);
 	}
 
 	.link.active {
@@ -222,8 +239,10 @@ const iconLinks: { label: string; href: string; icon: IconProps["icon"] }[] = [
 		justify-content: space-between;
 		gap: 0.75rem;
 		padding: 1.5rem 2rem 1.5rem 1.5rem;
-		background-color: var(--gray-999);
-		border-radius: 0 0 0.75rem 0.75rem;
+		background: var(--glass-bg);
+		backdrop-filter: blur(var(--glass-blur));
+		-webkit-backdrop-filter: blur(var(--glass-blur));
+		border-radius: 0 0 var(--radius-md) var(--radius-md);
 		box-shadow: var(--shadow-lg);
 	}
 
@@ -239,12 +258,14 @@ const iconLinks: { label: string; href: string; icon: IconProps["icon"] }[] = [
 		padding: var(--icon-padding);
 		text-decoration: none;
 		color: var(--accent-dark);
-		transition: color var(--theme-transition);
+		transition: all var(--transition-fast);
+		border-radius: var(--radius-sm);
 	}
 
 	.social:hover,
 	.social:focus {
-		color: var(--accent-text-over);
+		color: var(--accent-secondary-dark);
+		text-shadow: var(--glow-secondary);
 	}
 
 	.theme-toggle {
@@ -278,10 +299,12 @@ const iconLinks: { label: string; href: string; icon: IconProps["icon"] }[] = [
 			position: relative;
 			flex-direction: row;
 			font-size: var(--text-sm);
-			border-radius: 999rem;
-			border: 0;
+			border-radius: var(--radius-full);
+			border: 1px solid var(--glass-border);
 			padding: 0.5rem 0.5625rem;
-			background: radial-gradient(var(--gray-900), var(--gray-800) 150%);
+			background: var(--glass-bg);
+			backdrop-filter: blur(var(--glass-blur));
+			-webkit-backdrop-filter: blur(var(--glass-blur));
 			box-shadow: var(--shadow-md);
 		}
 
@@ -290,15 +313,15 @@ const iconLinks: { label: string; href: string; icon: IconProps["icon"] }[] = [
 			inset: -1px;
 			content: "";
 			background: var(--gradient-stroke);
-			border-radius: 999rem;
+			border-radius: var(--radius-full);
 			z-index: -1;
+			opacity: 0.5;
 		}
 
 		.link {
 			padding: 0.5rem 1rem;
-			border-radius: 999rem;
-			transition: color var(--theme-transition),
-				background-color var(--theme-transition);
+			border-radius: var(--radius-full);
+			transition: all var(--transition-fast);
 		}
 
 		.link:hover,
@@ -309,7 +332,8 @@ const iconLinks: { label: string; href: string; icon: IconProps["icon"] }[] = [
 
 		.link.active {
 			color: var(--accent-text-over);
-			background-color: var(--accent-regular);
+			background: var(--gradient-accent);
+			box-shadow: var(--glow-accent);
 		}
 
 		.menu-footer {
@@ -319,6 +343,8 @@ const iconLinks: { label: string; href: string; icon: IconProps["icon"] }[] = [
 			align-items: center;
 			padding: 0;
 			background-color: transparent;
+			backdrop-filter: none;
+			-webkit-backdrop-filter: none;
 			box-shadow: none;
 		}
 

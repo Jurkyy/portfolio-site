@@ -1,6 +1,6 @@
 ---
 title: "SESN: Scale-Equivariant Steerable Networks"
-publishDate: 2021-02-04 00:00:00
+publishDate: 2021-04-02 00:00:00
 img: /assets/SESN.gif
 img_alt: Showcase of scale-equivariant scaling implemented based on ICLR 2020.
 description: |
@@ -10,6 +10,7 @@ tags:
   - AI
   - Reproducibility
 size: Medium
+popularity: 62
 ---
 
 ## Revolutionising work
@@ -22,7 +23,7 @@ In the work [Scale-Equivariant Steerable Networks](https://arxiv.org/abs/1910.11
 
 We selected the MNIST and STL-10 datasets, and specifically used a custom script to generate a modified version of the MNIST dataset called MNIST-scale, tailored to our experimental needs. These datasets provided a comprehensive testing ground to validate the veracity of the original findings.
 
-### Implemenation
+### Implementation
 
 In order to thoroughly test the proposed method, we re-implemented various approaches for both scale-equivariant and local scale-invariant convolutions. We offer a clear outline in our code regarding the location of these implementations, enabling other researchers to explore our code and findings.
 

@@ -29,17 +29,22 @@ const currentYear = new Date().getFullYear();
 		text-align: center;
 		color: var(--gray-400);
 		font-size: var(--text-sm);
+		border-top: 1px solid var(--glass-border);
+		background: var(--glass-bg-subtle);
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
 	}
 
 	footer a {
 		color: var(--gray-400);
 		text-decoration: 1px solid underline transparent;
 		text-underline-offset: 0.25em;
-		transition: text-decoration-color var(--theme-transition);
+		transition: all var(--transition-fast);
 	}
 
 	footer a:hover,
 	footer a:focus {
+		color: var(--accent-secondary-dark);
 		text-decoration-color: currentColor;
 	}
 

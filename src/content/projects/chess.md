@@ -9,6 +9,7 @@ tags:
   - Rust
   - Chess
 size: Medium
+popularity: 75
 ---
 
 This project represents my effort to enhance my Rust programming skills by taking on a more comprehensive challenge. I aimed to deepen my understanding of software design principles, leverage Cargo – Rust's package manager, and refine problem-solving techniques.

@@ -1,16 +1,23 @@
 ---
+import TypingEffect from "./TypingEffect.astro";
+
 interface Props {
   title: string;
   tagline?: string;
   align?: "start" | "center";
+  typing?: boolean;
 }
 
-const { align = "center", tagline, title } = Astro.props;
+const { align = "center", tagline, title, typing = false } = Astro.props;
 ---
 
 <header class:list={["hero stack gap-4", align]}>
   <div class="stack gap-2">
-    <h1 class="title">{title}</h1>
+    {typing ? (
+      <TypingEffect text={title} tag="h1" class="title" speed={40} delay={300} />
+    ) : (
+      <h1 class="title">{title}</h1>
+    )}
     {tagline && <p class="tagline">{tagline}</p>}
   </div>
   <slot />
@@ -31,6 +38,12 @@ const { align = "center", tagline, title } = Astro.props;
   .title {
     font-size: var(--text-3xl);
     color: var(--gray-0);
+    letter-spacing: var(--tracking-tight);
+  }
+
+  .tagline {
+    color: var(--gray-300);
+    line-height: var(--leading-relaxed);
   }
 
   @media (min-width: 50em) {

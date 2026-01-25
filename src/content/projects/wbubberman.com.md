@@ -9,6 +9,7 @@ tags:
   - Astro
   - UI/UX
 size: Medium
+popularity: 45
 ---
 
 Welcome to my portfolio website built with the Astro framework. As you read this, you're delving into a digital space that reflects who I am and showcases my work. Let's take a closer look at the different sections you'll find here on this website.

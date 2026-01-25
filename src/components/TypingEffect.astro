@@ -1,0 +1,127 @@
+---
+/**
+ * TypingEffect.astro
+ * A typing/terminal effect component that makes text appear as if being typed.
+ * Includes a blinking cursor effect.
+ */
+interface Props {
+  text: string;
+  speed?: number; // ms per character
+  delay?: number; // ms before starting
+  class?: string;
+  tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'p' | 'span';
+  cursorChar?: string;
+}
+
+const {
+  text,
+  speed = 50,
+  delay = 500,
+  class: className = '',
+  tag: Tag = 'h1',
+  cursorChar = '_'
+} = Astro.props;
+---
+
+<Tag
+  class:list={['typing-effect', className]}
+  data-text={text}
+  data-speed={speed}
+  data-delay={delay}
+  data-cursor={cursorChar}
+>
+  <span class="typing-text"></span><span class="cursor">{cursorChar}</span>
+</Tag>
+
+<style>
+  .typing-effect {
+    position: relative;
+    display: inline-block;
+  }
+
+  .typing-text {
+    display: inline;
+  }
+
+  .cursor {
+    display: inline-block;
+    animation: blink 1s step-end infinite;
+    color: var(--accent-regular);
+  }
+
+  @keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+
+  /* Hide cursor after typing is complete (optional) */
+  .typing-effect.complete .cursor {
+    animation: blink 1s step-end infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .typing-effect .typing-text::after {
+      content: attr(data-full-text);
+    }
+
+    .cursor {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  function initTypingEffects() {
+    const elements = document.querySelectorAll('.typing-effect');
+
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    elements.forEach((element) => {
+      const textSpan = element.querySelector('.typing-text') as HTMLElement;
+      const text = element.getAttribute('data-text') || '';
+      const speed = parseInt(element.getAttribute('data-speed') || '50');
+      const delay = parseInt(element.getAttribute('data-delay') || '500');
+
+      if (!textSpan) return;
+
+      // If reduced motion, show full text immediately
+      if (prefersReducedMotion) {
+        textSpan.textContent = text;
+        element.classList.add('complete');
+        return;
+      }
+
+      // Skip if already typed
+      if (element.classList.contains('typed')) return;
+      element.classList.add('typed');
+
+      let index = 0;
+      textSpan.textContent = '';
+
+      function type() {
+        if (index < text.length) {
+          textSpan.textContent += text.charAt(index);
+          index++;
+          setTimeout(type, speed + Math.random() * 30); // Add slight randomness for realism
+        } else {
+          element.classList.add('complete');
+        }
+      }
+
+      setTimeout(type, delay);
+    });
+  }
+
+  // Initialize on load and after view transitions
+  document.addEventListener('astro:page-load', initTypingEffects);
+  if (document.readyState === 'complete') {
+    initTypingEffects();
+  } else {
+    document.addEventListener('DOMContentLoaded', initTypingEffects);
+  }
+</script>

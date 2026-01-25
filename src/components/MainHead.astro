@@ -39,8 +39,24 @@ const getThemePreference = () => {
 		? "dark"
 		: "light";
 };
-const isDark = getThemePreference() === "dark";
-document.documentElement.classList[isDark ? "add" : "remove"]("theme-dark");
+
+// Apply theme immediately
+const applyTheme = () => {
+	const isDark = getThemePreference() === "dark";
+	document.documentElement.classList[isDark ? "add" : "remove"]("theme-dark");
+};
+
+// Apply on initial load
+applyTheme();
+
+// Preserve theme across View Transitions by copying class BEFORE the swap
+document.addEventListener("astro:before-swap", (event) => {
+	const isDark = document.documentElement.classList.contains("theme-dark");
+	event.newDocument.documentElement.classList[isDark ? "add" : "remove"]("theme-dark");
+});
+
+// Also apply after swap as a fallback (in case localStorage changed)
+document.addEventListener("astro:after-swap", applyTheme);
 
 if (typeof localStorage !== "undefined") {
 	// Watch the document element and persist user preference when it changes.
