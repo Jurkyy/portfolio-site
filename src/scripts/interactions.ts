@@ -8,6 +8,34 @@ const prefersReducedMotion = (): boolean => {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 };
 
+// Detect low-power devices for performance optimization
+const isLowPowerDevice = (): boolean => {
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  const hasLowCores = navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4;
+  return isMobile || hasLowCores;
+};
+
+// Throttle function for mousemove handlers
+const throttle = <T extends (...args: any[]) => void>(fn: T, delay: number): T => {
+  let lastCall = 0;
+  let timeoutId: ReturnType<typeof setTimeout> | null = null;
+  return ((...args: Parameters<T>) => {
+    const now = Date.now();
+    const remaining = delay - (now - lastCall);
+    if (remaining <= 0) {
+      if (timeoutId) { clearTimeout(timeoutId); timeoutId = null; }
+      lastCall = now;
+      fn(...args);
+    } else if (!timeoutId) {
+      timeoutId = setTimeout(() => {
+        lastCall = Date.now();
+        timeoutId = null;
+        fn(...args);
+      }, remaining);
+    }
+  }) as T;
+};
+
 // ============================================
 // 1. Scroll-triggered animations
 // ============================================
@@ -67,7 +95,8 @@ interface TiltOptions {
 }
 
 const initCardTilt = (options: TiltOptions = {}): void => {
-  if (prefersReducedMotion()) return;
+  // Skip on reduced motion or low-power devices
+  if (prefersReducedMotion() || isLowPowerDevice()) return;
 
   const { maxTilt = 10, perspective = 1000, scale = 1.02, speed = 400 } = options;
 
@@ -82,7 +111,7 @@ const initCardTilt = (options: TiltOptions = {}): void => {
 
     let rafId: number | null = null;
 
-    const handleMouseMove = (e: MouseEvent) => {
+    const handleMouseMove = throttle((e: MouseEvent) => {
       if (rafId) cancelAnimationFrame(rafId);
 
       rafId = requestAnimationFrame(() => {
@@ -103,7 +132,7 @@ const initCardTilt = (options: TiltOptions = {}): void => {
         glow.style.background = `radial-gradient(circle at ${glowX}% ${glowY}%, var(--accent-overlay) 0%, transparent 50%)`;
         glow.style.opacity = '1';
       });
-    };
+    }, 16); // Throttle to ~60fps
 
     const handleMouseLeave = () => {
       if (rafId) cancelAnimationFrame(rafId);
@@ -130,7 +159,8 @@ const initCardTilt = (options: TiltOptions = {}): void => {
 // ============================================
 
 const initMouseSpotlight = (): void => {
-  if (prefersReducedMotion()) return;
+  // Skip on reduced motion or low-power devices
+  if (prefersReducedMotion() || isLowPowerDevice()) return;
 
   const spotlight = document.createElement('div');
   spotlight.className = 'mouse-spotlight';
@@ -151,10 +181,10 @@ const initMouseSpotlight = (): void => {
     rafId = requestAnimationFrame(animate);
   };
 
-  const handleMouseMove = (e: MouseEvent) => {
+  const handleMouseMove = throttle((e: MouseEvent) => {
     mouseX = e.clientX;
     mouseY = e.clientY + window.scrollY;
-  };
+  }, 16); // Throttle to ~60fps
 
   document.addEventListener('mousemove', handleMouseMove);
   animate();

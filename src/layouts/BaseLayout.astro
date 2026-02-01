@@ -7,7 +7,7 @@ import MainHead from "../components/MainHead.astro";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 import MatrixRain from "../components/MatrixRain.astro";
-import ScanLines from "../components/ScanLines.astro";
+import NoiseOverlay from "../components/NoiseOverlay.astro";
 import { ViewTransitions } from "astro:transitions";
 
 interface Props {
@@ -25,7 +25,7 @@ const { title, description } = Astro.props;
   <body
     ><ViewTransitions />
     <MatrixRain opacity={0.04} speed={0.4} />
-    <ScanLines opacity={0.02} lineHeight={2} />
+    <NoiseOverlay opacity={0.02} />
     <div class="stack backgrounds">
       <Nav />
       <slot />

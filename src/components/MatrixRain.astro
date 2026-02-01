@@ -49,6 +49,21 @@ const { opacity = 0.03, speed = 0.5 } = Astro.props;
       return;
     }
 
+    // Detect low-power devices
+    const isLowPowerDevice = (): boolean => {
+      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      const hasLowCores = navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4;
+      const prefersReducedData = 'connection' in navigator &&
+        (navigator as any).connection?.saveData === true;
+      return isMobile || hasLowCores || prefersReducedData;
+    };
+
+    // Disable on low-power devices for better performance
+    if (isLowPowerDevice()) {
+      canvas.style.display = 'none';
+      return;
+    }
+
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
@@ -56,13 +71,15 @@ const { opacity = 0.03, speed = 0.5 } = Astro.props;
     const baseOpacity = parseFloat(canvas.dataset.opacity || '0.03');
     const speed = parseFloat(canvas.dataset.speed || '0.5');
 
-    // Matrix characters - mix of katakana, latin, and numbers
-    const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ<>{}[]|/\\+=*&^%$#@!';
+    // Reduced character set for better performance
+    const chars = '0123456789ABCDEFGHJKLMNPQRSTUVWXYZ<>[]|/\\*#@';
     const charArray = chars.split('');
 
     let columns: number;
     let drops: number[];
-    let fontSize = 14;
+    let fontSize = 20; // Larger font = fewer columns = better performance
+    let animationId: number | null = null;
+    let resizeTimeout: ReturnType<typeof setTimeout> | null = null;
 
     function resize() {
       canvas.width = window.innerWidth;
@@ -74,8 +91,14 @@ const { opacity = 0.03, speed = 0.5 } = Astro.props;
       }
     }
 
+    // Throttled resize handler
+    function handleResize() {
+      if (resizeTimeout) clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(resize, 150);
+    }
+
     resize();
-    window.addEventListener('resize', resize);
+    window.addEventListener('resize', handleResize);
 
     // Check theme for color
     function getColor() {
@@ -114,19 +137,19 @@ const { opacity = 0.03, speed = 0.5 } = Astro.props;
       }
     }
 
-    // Animate at a slower rate for subtlety
+    // Animate at a slower rate for subtlety and performance
     let lastTime = 0;
-    const frameInterval = 50; // ~20fps for subtle effect
+    const frameInterval = 100; // ~10fps for subtle effect and better performance
 
     function animate(currentTime: number) {
       if (currentTime - lastTime >= frameInterval) {
         draw();
         lastTime = currentTime;
       }
-      requestAnimationFrame(animate);
+      animationId = requestAnimationFrame(animate);
     }
 
-    requestAnimationFrame(animate);
+    animationId = requestAnimationFrame(animate);
 
     // Listen for theme changes
     const observer = new MutationObserver(() => {
@@ -138,6 +161,14 @@ const { opacity = 0.03, speed = 0.5 } = Astro.props;
       attributes: true,
       attributeFilter: ['class']
     });
+
+    // Cleanup on page navigation
+    document.addEventListener('astro:before-swap', () => {
+      if (animationId) cancelAnimationFrame(animationId);
+      if (resizeTimeout) clearTimeout(resizeTimeout);
+      window.removeEventListener('resize', handleResize);
+      observer.disconnect();
+    }, { once: true });
   }
 
   // Initialize on load and after view transitions
