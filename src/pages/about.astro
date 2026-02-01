@@ -4,6 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import ContactCTA from "../components/ContactCTA.astro";
 import Hero from "../components/Hero.astro";
 import CV from "../components/CV.astro";
+import TerminalHeader from "../components/TerminalHeader.astro";
 ---
 
 <BaseLayout
@@ -12,6 +13,7 @@ import CV from "../components/CV.astro";
 >
 	<div class="stack gap-20">
 		<main class="wrapper about">
+			<TerminalHeader command="cat about.md" />
 			<Hero
 				title="About"
 				tagline="Thanks for stopping by. Read below to learn more about myself and my background."

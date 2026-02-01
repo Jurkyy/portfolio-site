@@ -7,6 +7,7 @@ import ContactCTA from "../components/ContactCTA.astro";
 import PortfolioPreview from "../components/PortfolioPreview.astro";
 import Hero from "../components/Hero.astro";
 import Grid from "../components/Grid.astro";
+import TerminalHeader from "../components/TerminalHeader.astro";
 const projects = (await getCollection("projects"))
   .filter((entry) => !entry.slug.includes("/"))
   .sort((a, b) => {
@@ -23,6 +24,7 @@ const projects = (await getCollection("projects"))
 >
   <div class="stack gap-20">
     <main class="wrapper stack gap-8">
+      <TerminalHeader command="ls -la ./projects/" />
       <Hero
         title="My Projects"
         tagline="See some of my favourite projects below to get an idea of my past experience."

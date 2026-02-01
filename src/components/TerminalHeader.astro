@@ -1,0 +1,96 @@
+---
+/**
+ * TerminalHeader.astro
+ * A terminal-style section header that displays a command prompt with a blinking cursor.
+ * Enhances the hacker theme with subtle terminal aesthetics.
+ */
+interface Props {
+  command: string;
+  class?: string;
+  path?: string; // Optional custom path, defaults to ~/portfolio
+}
+
+const {
+  command,
+  class: className = '',
+  path = '~/portfolio'
+} = Astro.props;
+---
+
+<div class:list={['terminal-header', className]}>
+  <span class="prompt">
+    <span class="prompt-symbol">&gt;</span>
+    <span class="prompt-path">{path}</span>
+    <span class="prompt-dollar">$</span>
+  </span>
+  <span class="command">{command}</span>
+  <span class="cursor"></span>
+</div>
+
+<style>
+  .terminal-header {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    display: flex;
+    align-items: center;
+    gap: 0.5ch;
+    margin-bottom: 0.75rem;
+    opacity: 0.85;
+  }
+
+  .prompt {
+    display: flex;
+    align-items: center;
+    gap: 0.5ch;
+  }
+
+  .prompt-symbol {
+    color: var(--accent-secondary);
+    font-weight: 600;
+  }
+
+  .prompt-path {
+    color: var(--accent-secondary);
+    opacity: 0.8;
+  }
+
+  .prompt-dollar {
+    color: var(--accent-secondary);
+  }
+
+  .command {
+    color: var(--gray-200);
+  }
+
+  :root.theme-dark .command {
+    color: var(--gray-300);
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 0.6em;
+    height: 1.1em;
+    background-color: var(--accent-secondary);
+    opacity: 0.9;
+    animation: cursor-blink 1s step-end infinite;
+    vertical-align: text-bottom;
+    margin-left: 1px;
+  }
+
+  @keyframes cursor-blink {
+    0%, 100% {
+      opacity: 0.9;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .cursor {
+      animation: none;
+      opacity: 0.9;
+    }
+  }
+</style>

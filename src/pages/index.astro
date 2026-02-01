@@ -12,6 +12,7 @@ import Icon from "../components/Icon.astro";
 import Pill from "../components/Pill.astro";
 import PortfolioPreview from "../components/PortfolioPreview.astro";
 import GlitchText from "../components/GlitchText.astro";
+import TerminalHeader from "../components/TerminalHeader.astro";
 
 // Page section components
 import ContactCTA from "../components/ContactCTA.astro";
@@ -62,6 +63,7 @@ const projects = (await getCollection("projects"))
 		<main class="wrapper stack gap-20 lg:gap-48">
 			<section class="section with-background with-cta">
 				<header class="section-header stack gap-2 lg:gap-4">
+					<TerminalHeader command="cat projects.md" />
 					<GlitchText text="Selected Projects" tag="h3" />
 					<p>
 						Take a look below at some of my featured work from the
@@ -91,6 +93,7 @@ const projects = (await getCollection("projects"))
 
 			<section class="section with-background bg-variant">
 				<header class="section-header stack gap-2 lg:gap-4">
+					<TerminalHeader command="cat interests.txt" />
 					<GlitchText text="Interests" tag="h3" />
 					<p>
 						I have a diverse range of interests, some of which
