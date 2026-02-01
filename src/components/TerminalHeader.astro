@@ -2,95 +2,105 @@
 /**
  * TerminalHeader.astro
  * A terminal-style section header that displays a command prompt with a blinking cursor.
- * Enhances the hacker theme with subtle terminal aesthetics.
+ * Enhanced with full terminal window styling for the hacker aesthetic.
  */
 interface Props {
   command: string;
   class?: string;
-  path?: string; // Optional custom path, defaults to ~/portfolio
+  path?: string;
+  user?: string;
+  host?: string;
 }
 
 const {
   command,
   class: className = '',
-  path = '~/portfolio'
+  path = '~',
+  user = 'wolf',
+  host = 'hrt'
 } = Astro.props;
 ---
 
 <div class:list={['terminal-header', className]}>
-  <span class="prompt">
-    <span class="prompt-symbol">&gt;</span>
-    <span class="prompt-path">{path}</span>
-    <span class="prompt-dollar">$</span>
-  </span>
-  <span class="command">{command}</span>
-  <span class="cursor"></span>
+  <div class="terminal-line">
+    <span class="prompt">
+      <span class="prompt-user">{user}</span>
+      <span class="prompt-at">@</span>
+      <span class="prompt-host">{host}</span>
+      <span class="prompt-colon">:</span>
+      <span class="prompt-path">{path}</span>
+      <span class="prompt-dollar">$</span>
+    </span>
+    <span class="command">{command}</span>
+  </div>
 </div>
 
 <style>
   .terminal-header {
     font-family: var(--font-mono);
-    font-size: var(--text-sm);
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    background: rgba(10, 10, 15, 0.8);
+    border: 1px solid rgba(6, 182, 212, 0.25);
+    border-radius: 6px;
+    box-shadow:
+      0 0 20px rgba(6, 182, 212, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  }
+
+  .terminal-line {
     display: flex;
     align-items: center;
-    gap: 0.5ch;
-    margin-bottom: 0.75rem;
-    opacity: 0.85;
+    gap: 0.5rem;
+    flex-wrap: wrap;
   }
 
   .prompt {
     display: flex;
     align-items: center;
-    gap: 0.5ch;
   }
 
-  .prompt-symbol {
+  .prompt-user {
+    color: #28ca42;
+  }
+
+  .prompt-at {
+    color: var(--gray-500);
+  }
+
+  .prompt-host {
     color: var(--accent-secondary);
-    font-weight: 600;
+  }
+
+  .prompt-colon {
+    color: var(--gray-500);
   }
 
   .prompt-path {
-    color: var(--accent-secondary);
-    opacity: 0.8;
+    color: #a855f7;
   }
 
   .prompt-dollar {
-    color: var(--accent-secondary);
+    color: var(--gray-400);
+    margin-left: 0.25rem;
   }
 
   .command {
     color: var(--gray-200);
   }
 
-  :root.theme-dark .command {
-    color: var(--gray-300);
+  /* Hover effect */
+  .terminal-header:hover {
+    border-color: rgba(6, 182, 212, 0.4);
+    box-shadow: 0 0 25px rgba(6, 182, 212, 0.1);
   }
 
-  .cursor {
-    display: inline-block;
-    width: 0.6em;
-    height: 1.1em;
-    background-color: var(--accent-secondary);
-    opacity: 0.9;
-    animation: cursor-blink 1s step-end infinite;
-    vertical-align: text-bottom;
-    margin-left: 1px;
-  }
-
-  @keyframes cursor-blink {
-    0%, 100% {
-      opacity: 0.9;
-    }
-    50% {
-      opacity: 0;
-    }
-  }
-
-  /* Respect reduced motion */
-  @media (prefers-reduced-motion: reduce) {
-    .cursor {
-      animation: none;
-      opacity: 0.9;
+  /* Responsive */
+  @media (max-width: 50em) {
+    .terminal-header {
+      font-size: 0.75rem;
+      padding: 0.6rem 0.8rem;
     }
   }
 </style>

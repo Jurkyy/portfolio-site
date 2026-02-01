@@ -8,14 +8,16 @@ import PortfolioPreview from "../components/PortfolioPreview.astro";
 import Hero from "../components/Hero.astro";
 import Grid from "../components/Grid.astro";
 import TerminalHeader from "../components/TerminalHeader.astro";
+
 const projects = (await getCollection("projects"))
   .filter((entry) => !entry.slug.includes("/"))
   .sort((a, b) => {
-    // Default sort by popularity (higher = first)
     const popA = a.data.popularity ?? 50;
     const popB = b.data.popularity ?? 50;
     return popB - popA;
   });
+
+const projectCount = projects.length;
 ---
 
 <BaseLayout
@@ -24,12 +26,53 @@ const projects = (await getCollection("projects"))
 >
   <div class="stack gap-20">
     <main class="wrapper stack gap-8">
-      <TerminalHeader command="ls -la ./projects/" />
+      <div class="projects-header">
+        <TerminalHeader command="find ./projects -type f -name '*.md' | wc -l" />
+
+        <div class="output-block">
+          <div class="output-line">
+            <span class="output-result">{projectCount}</span>
+            <span class="output-comment"># total projects found</span>
+          </div>
+        </div>
+
+        <TerminalHeader command="ls -la ./projects/ --sort=popularity" />
+      </div>
+
       <Hero
-        title="My Projects"
-        tagline="See some of my favourite projects below to get an idea of my past experience."
+        title="Projects"
+        tagline="A collection of personal projects, open source contributions, and professional work."
         align="start"
       />
+
+      <div class="project-stats">
+        <div class="stat-card">
+          <span class="stat-icon">[RUST]</span>
+          <span class="stat-number">{projects.filter(p => p.data.tags?.includes('Rust')).length}</span>
+          <span class="stat-desc">Rust Projects</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">[PY]</span>
+          <span class="stat-number">{projects.filter(p => p.data.tags?.includes('Python')).length}</span>
+          <span class="stat-desc">Python Projects</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">[SYS]</span>
+          <span class="stat-number">{projects.filter(p => p.data.tags?.includes('DevOps') || p.data.tags?.includes('Infrastructure')).length}</span>
+          <span class="stat-desc">Infrastructure</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">[ALL]</span>
+          <span class="stat-number">{projectCount}</span>
+          <span class="stat-desc">Total Projects</span>
+        </div>
+      </div>
+
+      <div class="filter-bar">
+        <span class="filter-label">wolf@portfolio:~/projects$</span>
+        <span class="filter-text">grep -r "featured" . --include="*.md"</span>
+        <span class="cursor">█</span>
+      </div>
 
       <Grid variant="offset">
         {
@@ -40,8 +83,191 @@ const projects = (await getCollection("projects"))
           ))
         }
       </Grid>
+
+      <div class="end-block">
+        <div class="end-line">
+          <span class="prompt">wolf@portfolio:~/projects$</span>
+          <span class="command">echo "End of project listing"</span>
+        </div>
+        <div class="end-output">End of project listing</div>
+        <div class="end-line">
+          <span class="prompt">wolf@portfolio:~/projects$</span>
+          <span class="cursor-block">█</span>
+        </div>
+      </div>
     </main>
     <ContactCTA />
   </div>
-
 </BaseLayout>
+
+<style>
+  .projects-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .output-block {
+    background: rgba(10, 10, 15, 0.8);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    border-left: 3px solid var(--accent-secondary);
+    border-radius: 4px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-mono);
+  }
+
+  .output-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .output-result {
+    color: #28ca42;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .output-comment {
+    color: var(--gray-500);
+    font-size: 0.85rem;
+  }
+
+  .project-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (min-width: 50em) {
+    .project-stats {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .stat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.25rem;
+    background: rgba(10, 10, 15, 0.6);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .stat-card:hover {
+    border-color: var(--accent-secondary);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.15);
+    transform: translateY(-2px);
+  }
+
+  .stat-icon {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent-secondary);
+    background: rgba(6, 182, 212, 0.1);
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+  }
+
+  .stat-number {
+    font-family: var(--font-mono);
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--gray-100);
+  }
+
+  .stat-desc {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--gray-400);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.25rem;
+    background: rgba(10, 10, 15, 0.9);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    border-radius: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    overflow-x: auto;
+  }
+
+  .filter-label {
+    color: #28ca42;
+    white-space: nowrap;
+  }
+
+  .filter-text {
+    color: var(--gray-200);
+    white-space: nowrap;
+  }
+
+  .cursor {
+    color: var(--accent-secondary);
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+
+  .end-block {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background: rgba(10, 10, 15, 0.8);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    border-radius: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+  }
+
+  .end-line {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .end-line:last-child {
+    margin-bottom: 0;
+    margin-top: 0.5rem;
+  }
+
+  .prompt {
+    color: #28ca42;
+  }
+
+  .command {
+    color: var(--gray-200);
+  }
+
+  .end-output {
+    color: var(--gray-400);
+    padding-left: 1rem;
+    border-left: 2px solid rgba(6, 182, 212, 0.3);
+    margin-left: 0.5rem;
+  }
+
+  .cursor-block {
+    color: var(--accent-secondary);
+    animation: blink 1s step-end infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cursor,
+    .cursor-block {
+      animation: none;
+    }
+  }
+</style>
