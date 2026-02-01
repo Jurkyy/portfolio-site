@@ -95,12 +95,13 @@ const infraCount = projects.filter(p => p.data.tags?.includes('DevOps') || p.dat
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-lg);
     backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
     transition: all 0.3s ease;
   }
 
   .stat-card:hover {
     border-color: var(--accent-secondary);
-    box-shadow: 0 0 30px rgba(6, 182, 212, 0.15);
+    box-shadow: 0 0 25px rgba(6, 182, 212, 0.1);
     transform: translateY(-4px);
   }
 
@@ -110,7 +111,7 @@ const infraCount = projects.filter(p => p.data.tags?.includes('DevOps') || p.dat
 
   .stat-card.highlight:hover {
     border-color: var(--accent-regular);
-    box-shadow: 0 0 30px rgba(168, 85, 247, 0.2);
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.15);
   }
 
   .stat-icon {
