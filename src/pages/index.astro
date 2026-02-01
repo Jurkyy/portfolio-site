@@ -1,10 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 
-// Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-// Component Imports
 import CallToAction from "../components/CallToAction.astro";
 import Grid from "../components/Grid.astro";
 import Hero from "../components/Hero.astro";
@@ -12,13 +10,10 @@ import Icon from "../components/Icon.astro";
 import Pill from "../components/Pill.astro";
 import PortfolioPreview from "../components/PortfolioPreview.astro";
 import GlitchText from "../components/GlitchText.astro";
-import TerminalHeader from "../components/TerminalHeader.astro";
 
-// Page section components
 import ContactCTA from "../components/ContactCTA.astro";
 import Skills from "../components/Skills.astro";
 
-// Content Fetching: List top 3 most popular projects
 const projects = (await getCollection("projects"))
 	.filter((project) => !project.slug.includes("/"))
 	.sort((a, b) => (b.data.popularity ?? 50) - (a.data.popularity ?? 50))
@@ -30,14 +25,6 @@ const projects = (await getCollection("projects"))
 		<div class="wrapper stack gap-8 lg:gap-20">
 			<header class="hero">
 				<div class="hero-content">
-					<div class="system-header">
-						<span class="system-tag">[SYS]</span>
-						<span class="system-status">
-							<span class="status-dot"></span>
-							ACTIVE
-						</span>
-					</div>
-
 					<Hero
 						title="Wolfgang L. Bubberman"
 						tagline="Trading Operations Analyst at Hudson River Trading. Building and maintaining systems that trade global markets."
@@ -52,43 +39,43 @@ const projects = (await getCollection("projects"))
 								<Icon icon="gear" size="1.33em" /> TradOps
 							</Pill>
 							<Pill>
-								<Icon icon="code" size="1.33em" /> Rust Dev
+								<Icon icon="code" size="1.33em" /> Rust
 							</Pill>
 						</div>
+					</Hero>
 
-						<div class="quick-stats">
-							<div class="stat-item">
-								<span class="stat-label">location</span>
-								<span class="stat-value">London, UK</span>
-							</div>
-							<div class="stat-item">
-								<span class="stat-label">focus</span>
-								<span class="stat-value">Low-latency Systems</span>
-							</div>
-							<div class="stat-item">
-								<span class="stat-label">stack</span>
-								<span class="stat-value">Rust / Python / K8s</span>
+					<div class="quick-info">
+						<div class="info-card">
+							<span class="info-icon">📍</span>
+							<div class="info-text">
+								<span class="info-label">Location</span>
+								<span class="info-value">London, UK</span>
 							</div>
 						</div>
-					</Hero>
-				</div>
-
-				<div class="portrait-container">
-					<div class="portrait-frame">
-						<div class="frame-corner top-left"></div>
-						<div class="frame-corner top-right"></div>
-						<div class="frame-corner bottom-left"></div>
-						<div class="frame-corner bottom-right"></div>
-						<img
-							alt="Wolfgang Bubberman portrait"
-							width="480"
-							height="620"
-							src="/assets/portrait.jpg"
-						/>
-						<div class="portrait-overlay">
-							<span class="overlay-text">ID: WOLF-001</span>
+						<div class="info-card">
+							<span class="info-icon">🎯</span>
+							<div class="info-text">
+								<span class="info-label">Focus</span>
+								<span class="info-value">Low-latency Systems</span>
+							</div>
+						</div>
+						<div class="info-card">
+							<span class="info-icon">⚡</span>
+							<div class="info-text">
+								<span class="info-label">Stack</span>
+								<span class="info-value">Rust / Python / K8s</span>
+							</div>
 						</div>
 					</div>
+				</div>
+
+				<div class="portrait-wrapper">
+					<img
+						alt="Wolfgang Bubberman portrait"
+						width="480"
+						height="620"
+						src="/assets/portrait.jpg"
+					/>
 				</div>
 			</header>
 
@@ -98,11 +85,8 @@ const projects = (await getCollection("projects"))
 		<main class="wrapper stack gap-20 lg:gap-48">
 			<section class="section with-background with-cta">
 				<header class="section-header stack gap-2 lg:gap-4">
-					<TerminalHeader command="ls -la ./projects/ | head -n 4" />
 					<GlitchText text="Selected Projects" tag="h3" />
-					<p class="section-desc">
-						<span class="comment-syntax">//</span> Recent work in trading systems, infrastructure, and open source
-					</p>
+					<p>Recent work in trading systems, infrastructure, and open source.</p>
 				</header>
 
 				<div class="gallery">
@@ -127,11 +111,8 @@ const projects = (await getCollection("projects"))
 
 			<section class="section with-background bg-variant">
 				<header class="section-header stack gap-2 lg:gap-4">
-					<TerminalHeader command="cat ~/.config/interests.yaml" />
 					<GlitchText text="Interests" tag="h3" />
-					<p class="section-desc">
-						<span class="comment-syntax">#</span> What I'm passionate about outside of work
-					</p>
+					<p>What I'm passionate about outside of work.</p>
 				</header>
 
 				<div class="gallery">
@@ -173,163 +154,77 @@ const projects = (await getCollection("projects"))
 		width: 100%;
 	}
 
-	.system-header {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-		margin-bottom: 1rem;
-		font-family: var(--font-mono);
-		font-size: 0.8rem;
-	}
-
-	.system-tag {
-		color: var(--accent-secondary);
-		background: rgba(6, 182, 212, 0.1);
-		padding: 0.25rem 0.5rem;
-		border: 1px solid rgba(6, 182, 212, 0.3);
-		border-radius: 3px;
-	}
-
-	.system-status {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		color: #28ca42;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-	}
-
-	.status-dot {
-		width: 8px;
-		height: 8px;
-		background: #28ca42;
-		border-radius: 50%;
-		box-shadow: 0 0 8px #28ca42;
-		animation: pulse 2s ease-in-out infinite;
-	}
-
-	@keyframes pulse {
-		0%, 100% { opacity: 1; }
-		50% { opacity: 0.5; }
-	}
-
 	.roles {
 		display: none;
 	}
 
-	.quick-stats {
+	.quick-info {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
+		gap: 0.75rem;
 		margin-top: 1.5rem;
-		padding: 1rem;
-		background: rgba(10, 10, 15, 0.6);
-		border: 1px solid rgba(6, 182, 212, 0.2);
-		border-radius: 6px;
-		font-family: var(--font-mono);
 	}
 
-	.stat-item {
+	.info-card {
 		display: flex;
 		align-items: center;
-		font-size: 0.85rem;
+		gap: 1rem;
+		padding: 0.875rem 1rem;
+		background: var(--glass-bg);
+		border: 1px solid var(--glass-border);
+		border-radius: var(--radius-md);
+		backdrop-filter: blur(var(--glass-blur));
+		transition: all 0.3s ease;
 	}
 
-	.stat-label {
-		color: var(--accent-secondary);
-		min-width: 80px;
+	.info-card:hover {
+		border-color: var(--accent-secondary);
+		box-shadow: 0 0 20px rgba(6, 182, 212, 0.1);
+		transform: translateX(4px);
 	}
 
-	.stat-label::after {
-		content: ':';
-		margin-right: 0.75rem;
+	.info-icon {
+		font-size: 1.25rem;
 	}
 
-	.stat-value {
-		color: var(--gray-200);
+	.info-text {
+		display: flex;
+		flex-direction: column;
+		gap: 0.125rem;
 	}
 
-	.portrait-container {
+	.info-label {
+		font-size: 0.7rem;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: var(--gray-400);
+	}
+
+	.info-value {
+		font-size: 0.95rem;
+		color: var(--gray-100);
+		font-weight: 500;
+	}
+
+	.portrait-wrapper {
 		width: 100%;
 		max-width: 320px;
 	}
 
-	.portrait-frame {
-		position: relative;
-		padding: 8px;
-		background: rgba(10, 10, 15, 0.8);
-		border: 1px solid var(--accent-secondary);
-		border-radius: 8px;
-		box-shadow:
-			0 0 20px rgba(6, 182, 212, 0.2),
-			inset 0 0 20px rgba(6, 182, 212, 0.05);
-	}
-
-	.frame-corner {
-		position: absolute;
-		width: 20px;
-		height: 20px;
-		border-color: var(--accent-secondary);
-		border-style: solid;
-		border-width: 0;
-		z-index: 2;
-	}
-
-	.frame-corner.top-left {
-		top: -1px;
-		left: -1px;
-		border-top-width: 3px;
-		border-left-width: 3px;
-	}
-
-	.frame-corner.top-right {
-		top: -1px;
-		right: -1px;
-		border-top-width: 3px;
-		border-right-width: 3px;
-	}
-
-	.frame-corner.bottom-left {
-		bottom: -1px;
-		left: -1px;
-		border-bottom-width: 3px;
-		border-left-width: 3px;
-	}
-
-	.frame-corner.bottom-right {
-		bottom: -1px;
-		right: -1px;
-		border-bottom-width: 3px;
-		border-right-width: 3px;
-	}
-
-	.hero img {
+	.portrait-wrapper img {
 		width: 100%;
 		aspect-ratio: 5 / 4;
 		object-fit: cover;
 		object-position: top;
-		border-radius: 4px;
-		display: block;
+		border-radius: var(--radius-xl);
+		box-shadow: var(--shadow-lg);
+		border: 1px solid var(--glass-border);
+		transition: all var(--transition-normal);
 	}
 
-	.portrait-overlay {
-		position: absolute;
-		bottom: 16px;
-		left: 16px;
-		right: 16px;
-		padding: 0.5rem;
-		background: rgba(10, 10, 15, 0.9);
-		border: 1px solid rgba(6, 182, 212, 0.5);
-		border-radius: 4px;
-		text-align: center;
-	}
-
-	.overlay-text {
-		font-family: var(--font-mono);
-		font-size: 0.75rem;
-		color: var(--accent-secondary);
-		letter-spacing: 0.15em;
-		text-transform: uppercase;
+	.portrait-wrapper img:hover {
+		box-shadow: var(--shadow-lg), var(--glow-accent);
+		transform: scale(1.02);
 	}
 
 	@media (min-width: 50em) {
@@ -347,28 +242,29 @@ const projects = (await getCollection("projects"))
 			flex-wrap: wrap;
 		}
 
-		.quick-stats {
+		.quick-info {
 			flex-direction: row;
-			gap: 2rem;
+			gap: 1rem;
 		}
 
-		.stat-item {
+		.info-card {
+			flex: 1;
 			flex-direction: column;
 			align-items: flex-start;
-			gap: 0.25rem;
+			gap: 0.5rem;
 		}
 
-		.stat-label::after {
-			content: '';
-			margin-right: 0;
+		.info-card:hover {
+			transform: translateY(-4px);
 		}
 
-		.portrait-container {
+		.portrait-wrapper {
 			max-width: none;
 		}
 
-		.hero img {
+		.portrait-wrapper img {
 			aspect-ratio: 3 / 4;
+			border-radius: 4.5rem;
 		}
 	}
 
@@ -418,16 +314,6 @@ const projects = (await getCollection("projects"))
 	.section-header h3,
 	.section-header :global(.glitch) {
 		font-size: var(--text-2xl);
-	}
-
-	.section-desc {
-		font-family: var(--font-mono);
-		font-size: 0.9rem !important;
-	}
-
-	.comment-syntax {
-		color: var(--accent-secondary);
-		opacity: 0.7;
 	}
 
 	@media (min-width: 50em) {
@@ -484,8 +370,6 @@ const projects = (await getCollection("projects"))
 		box-shadow: var(--shadow-sm);
 		font-weight: 500;
 		transition: all var(--transition-normal);
-		font-family: var(--font-mono);
-		font-size: 0.9rem;
 	}
 
 	.interest-icon {
@@ -501,14 +385,7 @@ const projects = (await getCollection("projects"))
 
 	@media (min-width: 50em) {
 		.mention-card {
-			border-radius: var(--radius-xl);
 			height: 9.5rem;
-		}
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.status-dot {
-			animation: none;
 		}
 	}
 </style>

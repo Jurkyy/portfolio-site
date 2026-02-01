@@ -1,439 +1,104 @@
 ---
-/**
- * Skills.astro
- * Terminal-styled skills display with system status indicators
- */
+import Icon from "./Icon.astro";
 ---
 
-<section class="terminal-skills">
-  <div class="terminal-window">
-    <div class="terminal-header">
-      <div class="terminal-buttons">
-        <span class="btn-close"></span>
-        <span class="btn-minimize"></span>
-        <span class="btn-maximize"></span>
-      </div>
-      <div class="terminal-title">wolf@hrt:~/skills</div>
-      <div class="terminal-status">
-        <span class="status-indicator online"></span>
-        <span>ONLINE</span>
-      </div>
-    </div>
-
-    <div class="terminal-content">
-      <div class="terminal-prompt">
-        <span class="prompt-user">wolf</span>
-        <span class="prompt-at">@</span>
-        <span class="prompt-host">hrt</span>
-        <span class="prompt-colon">:</span>
-        <span class="prompt-path">~</span>
-        <span class="prompt-dollar">$</span>
-        <span class="prompt-command">neofetch --skills</span>
-      </div>
-
-      <div class="skills-output">
-        <pre class="ascii-art">{`
- ██╗    ██╗ ██████╗ ██╗     ███████╗
- ██║    ██║██╔═══██╗██║     ██╔════╝
- ██║ █╗ ██║██║   ██║██║     █████╗
- ██║███╗██║██║   ██║██║     ██╔══╝
- ╚███╔███╔╝╚██████╔╝███████╗██║
-  ╚══╝╚══╝  ╚═════╝ ╚══════╝╚═╝
-`}</pre>
-
-        <div class="system-info">
-          <div class="info-row">
-            <span class="info-label">OS</span>
-            <span class="info-value">Arch Linux x86_64</span>
-          </div>
-          <div class="info-row">
-            <span class="info-label">Role</span>
-            <span class="info-value">Trading Operations Analyst</span>
-          </div>
-          <div class="info-row">
-            <span class="info-label">Location</span>
-            <span class="info-value">London, UK</span>
-          </div>
-          <div class="info-row">
-            <span class="info-label">Uptime</span>
-            <span class="info-value uptime">Loading...</span>
-          </div>
-          <div class="info-row">
-            <span class="info-label">Stack</span>
-            <span class="info-value">Rust, Python, Go, K8s</span>
-          </div>
-          <div class="info-row">
-            <span class="info-label">Focus</span>
-            <span class="info-value">SRE / DevOps / Trading Systems</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="skill-blocks">
-        <div class="skill-block">
-          <div class="block-header">
-            <span class="block-icon">[SYS]</span>
-            <span class="block-title">Infrastructure & Operations</span>
-          </div>
-          <div class="block-content">
-            <p>Ensuring trading systems run at peak performance. Monitoring, debugging, and optimizing high-frequency infrastructure across global markets.</p>
-            <div class="tech-tags">
-              <span class="tag">Kubernetes</span>
-              <span class="tag">Prometheus</span>
-              <span class="tag">Grafana</span>
-              <span class="tag">Kafka</span>
-            </div>
-          </div>
-          <div class="block-status">
-            <span class="status-dot green"></span>
-            <span>All systems operational</span>
-          </div>
-        </div>
-
-        <div class="skill-block">
-          <div class="block-header">
-            <span class="block-icon">[DEV]</span>
-            <span class="block-title">Systems Programming</span>
-          </div>
-          <div class="block-content">
-            <p>Building low-latency trading tools and automation. From rapid debugging scripts to production-grade system utilities in Rust and Python.</p>
-            <div class="tech-tags">
-              <span class="tag">Rust</span>
-              <span class="tag">Python</span>
-              <span class="tag">C++</span>
-              <span class="tag">Bash</span>
-            </div>
-          </div>
-          <div class="block-status">
-            <span class="status-dot green"></span>
-            <span>0 errors, 0 warnings</span>
-          </div>
-        </div>
-
-        <div class="skill-block">
-          <div class="block-header">
-            <span class="block-icon">[NET]</span>
-            <span class="block-title">Market Connectivity</span>
-          </div>
-          <div class="block-content">
-            <p>Direct experience with major exchanges: XLON, XETRA, TP/ICAP. Understanding market microstructure and trading protocols.</p>
-            <div class="tech-tags">
-              <span class="tag">FIX Protocol</span>
-              <span class="tag">Exchange APIs</span>
-              <span class="tag">Market Data</span>
-            </div>
-          </div>
-          <div class="block-status">
-            <span class="status-dot green"></span>
-            <span>Markets connected</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="terminal-prompt bottom-prompt">
-        <span class="prompt-user">wolf</span>
-        <span class="prompt-at">@</span>
-        <span class="prompt-host">hrt</span>
-        <span class="prompt-colon">:</span>
-        <span class="prompt-path">~</span>
-        <span class="prompt-dollar">$</span>
-        <span class="cursor">█</span>
-      </div>
-    </div>
-  </div>
+<section class="box skills">
+	<div class="stack gap-2 lg:gap-4">
+		<Icon
+			icon="terminal-window"
+			color="var(--accent-regular)"
+			size="2.5rem"
+			gradient
+		/>
+		<h2>Infrastructure & Operations</h2>
+		<p>
+			Ensuring trading systems run at peak performance. Monitoring, debugging,
+			and optimizing high-frequency infrastructure with Kubernetes, Prometheus,
+			Grafana, and Kafka.
+		</p>
+	</div>
+	<div class="stack gap-2 lg:gap-4">
+		<Icon
+			icon="code"
+			color="var(--accent-regular)"
+			size="2.5rem"
+			gradient
+		/>
+		<h2>Systems Programming</h2>
+		<p>
+			Building low-latency tools and automation in Rust and Python.
+			From rapid debugging scripts to production-grade system utilities
+			and trading infrastructure.
+		</p>
+	</div>
+	<div class="stack gap-2 lg:gap-4">
+		<Icon
+			icon="strategy"
+			color="var(--accent-regular)"
+			size="2.5rem"
+			gradient
+		/>
+		<h2>Result-driven</h2>
+		<p>
+			Thriving under pressure in fast-paced trading environments.
+			Composed during market opens, disciplined in execution,
+			always learning and improving.
+		</p>
+	</div>
 </section>
 
-<script>
-  function updateUptime() {
-    const startDate = new Date('2025-06-01');
-    const now = new Date();
-    const diff = now.getTime() - startDate.getTime();
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-
-    const uptimeEl = document.querySelector('.uptime');
-    if (uptimeEl) {
-      uptimeEl.textContent = `${days}d ${hours}h ${mins}m @ HRT`;
-    }
-  }
-
-  updateUptime();
-  setInterval(updateUptime, 60000);
-</script>
-
 <style>
-  .terminal-skills {
-    width: 100%;
-  }
+	.box {
+		border: 1px solid var(--glass-border);
+		border-radius: var(--radius-md);
+		padding: 1.5rem;
+		background: var(--glass-bg);
+		backdrop-filter: blur(var(--glass-blur));
+		-webkit-backdrop-filter: blur(var(--glass-blur));
+		box-shadow: var(--shadow-md);
+	}
 
-  .terminal-window {
-    background: rgba(10, 10, 15, 0.95);
-    border: 1px solid var(--accent-secondary);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow:
-      0 0 20px rgba(6, 182, 212, 0.15),
-      0 0 40px rgba(6, 182, 212, 0.05),
-      inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  }
+	.skills {
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+	}
 
-  .terminal-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.75rem 1rem;
-    background: linear-gradient(180deg, rgba(30, 30, 40, 0.9) 0%, rgba(20, 20, 30, 0.9) 100%);
-    border-bottom: 1px solid rgba(6, 182, 212, 0.3);
-  }
+	.skills h2 {
+		font-size: var(--text-lg);
+	}
 
-  .terminal-buttons {
-    display: flex;
-    gap: 8px;
-  }
+	.skills p {
+		color: var(--gray-400);
+		line-height: var(--leading-relaxed);
+	}
 
-  .terminal-buttons span {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-  }
+	/* Hover effect for skill sections */
+	.skills > div {
+		padding: 1rem;
+		border-radius: var(--radius-md);
+		transition: all var(--transition-normal);
+	}
 
-  .btn-close { background: #ff5f57; }
-  .btn-minimize { background: #ffbd2e; }
-  .btn-maximize { background: #28ca42; }
+	.skills > div:hover {
+		background: var(--accent-subtle-overlay);
+		transform: translateY(-2px);
+	}
 
-  .terminal-title {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--gray-300);
-    letter-spacing: 0.05em;
-  }
+	@media (min-width: 50em) {
+		.box {
+			border-radius: var(--radius-xl);
+			padding: 2.5rem;
+		}
 
-  .terminal-status {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    color: #28ca42;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
+		.skills {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 5rem;
+		}
 
-  .status-indicator {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    animation: pulse-glow 2s ease-in-out infinite;
-  }
-
-  .status-indicator.online {
-    background: #28ca42;
-    box-shadow: 0 0 8px #28ca42;
-  }
-
-  @keyframes pulse-glow {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
-  }
-
-  .terminal-content {
-    padding: 1.5rem;
-  }
-
-  .terminal-prompt {
-    font-family: var(--font-mono);
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0;
-  }
-
-  .prompt-user { color: #28ca42; }
-  .prompt-at { color: var(--gray-400); }
-  .prompt-host { color: var(--accent-secondary); }
-  .prompt-colon { color: var(--gray-400); }
-  .prompt-path { color: #a855f7; }
-  .prompt-dollar { color: var(--gray-300); margin-right: 0.5rem; }
-  .prompt-command { color: var(--gray-100); }
-
-  .cursor {
-    color: var(--accent-secondary);
-    animation: blink 1s step-end infinite;
-  }
-
-  @keyframes blink {
-    50% { opacity: 0; }
-  }
-
-  .skills-output {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-bottom: 2rem;
-    padding: 1rem;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 4px;
-    border-left: 3px solid var(--accent-secondary);
-  }
-
-  @media (min-width: 50em) {
-    .skills-output {
-      flex-direction: row;
-      gap: 2rem;
-    }
-  }
-
-  .ascii-art {
-    font-family: var(--font-mono);
-    font-size: 0.5rem;
-    line-height: 1.1;
-    color: var(--accent-secondary);
-    margin: 0;
-    white-space: pre;
-    display: none;
-  }
-
-  @media (min-width: 50em) {
-    .ascii-art {
-      display: block;
-      font-size: 0.6rem;
-    }
-  }
-
-  .system-info {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    flex: 1;
-  }
-
-  .info-row {
-    display: flex;
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-  }
-
-  .info-label {
-    color: var(--accent-secondary);
-    min-width: 100px;
-  }
-
-  .info-label::after {
-    content: ':';
-    margin-right: 0.5rem;
-  }
-
-  .info-value {
-    color: var(--gray-200);
-  }
-
-  .skill-blocks {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  @media (min-width: 50em) {
-    .skill-blocks {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-    }
-  }
-
-  .skill-block {
-    background: rgba(20, 20, 30, 0.6);
-    border: 1px solid rgba(6, 182, 212, 0.2);
-    border-radius: 6px;
-    padding: 1rem;
-    transition: all 0.3s ease;
-  }
-
-  .skill-block:hover {
-    border-color: var(--accent-secondary);
-    box-shadow: 0 0 20px rgba(6, 182, 212, 0.1);
-    transform: translateY(-2px);
-  }
-
-  .block-header {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.75rem;
-    font-family: var(--font-mono);
-  }
-
-  .block-icon {
-    color: var(--accent-secondary);
-    font-size: 0.8rem;
-  }
-
-  .block-title {
-    color: var(--gray-100);
-    font-weight: 600;
-    font-size: 0.95rem;
-  }
-
-  .block-content p {
-    color: var(--gray-400);
-    font-size: 0.85rem;
-    line-height: 1.6;
-    margin-bottom: 0.75rem;
-  }
-
-  .tech-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-  }
-
-  .tag {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    padding: 0.2rem 0.5rem;
-    background: rgba(6, 182, 212, 0.1);
-    border: 1px solid rgba(6, 182, 212, 0.3);
-    border-radius: 3px;
-    color: var(--accent-secondary);
-  }
-
-  .block-status {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 0.75rem;
-    padding-top: 0.75rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    color: var(--gray-500);
-  }
-
-  .status-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-  }
-
-  .status-dot.green {
-    background: #28ca42;
-    box-shadow: 0 0 6px #28ca42;
-  }
-
-  .bottom-prompt {
-    margin-bottom: 0;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .status-indicator,
-    .cursor {
-      animation: none;
-    }
-  }
+		.skills h2 {
+			font-size: var(--text-2xl);
+		}
+	}
 </style>

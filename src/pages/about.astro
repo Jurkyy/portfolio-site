@@ -4,7 +4,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import ContactCTA from "../components/ContactCTA.astro";
 import Hero from "../components/Hero.astro";
 import CV from "../components/CV.astro";
-import TerminalHeader from "../components/TerminalHeader.astro";
 ---
 
 <BaseLayout
@@ -13,19 +12,6 @@ import TerminalHeader from "../components/TerminalHeader.astro";
 >
 	<div class="stack gap-20">
 		<main class="wrapper about">
-			<TerminalHeader command="cat ~/.profile" />
-
-			<div class="profile-header">
-				<div class="ascii-banner">
-					<pre>{`┌─────────────────────────────────────────┐
-│  WOLF://SYSTEM.PROFILE                  │
-│  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  │
-│  STATUS: ONLINE    LOCATION: LONDON     │
-│  ROLE: TRADOPS     CLEARANCE: L5        │
-└─────────────────────────────────────────┘`}</pre>
-				</div>
-			</div>
-
 			<Hero
 				title="About"
 				tagline="Trading Operations Analyst | Site Reliability | Systems Engineer"
@@ -40,13 +26,9 @@ import TerminalHeader from "../components/TerminalHeader.astro";
 				<CV />
 			</Hero>
 
-			<section class="terminal-section">
-				<div class="section-header-terminal">
-					<span class="header-prompt">$</span>
-					<span class="header-command">cat background.md</span>
-				</div>
+			<section>
 				<h2 class="section-title">Background</h2>
-				<div class="content terminal-content">
+				<div class="content">
 					<p>
 						I am an ambitious and driven individual with a strong
 						passion for computer science and software engineering.
@@ -86,10 +68,7 @@ import TerminalHeader from "../components/TerminalHeader.astro";
 							href="https://forzehydrogenracing.com/"
 							>Forze Hydrogen Racing</a
 						>, where I led a team of talented individuals in
-						building the world's fastest hydrogen race car. This
-						experience provided me with valuable insights into C++
-						programming and honed my skills in planning, presenting,
-						and collaborative teamwork.
+						building the world's fastest hydrogen race car.
 					</p>
 					<br />
 					<p>
@@ -106,295 +85,151 @@ import TerminalHeader from "../components/TerminalHeader.astro";
 					<p>
 						Beyond my academic and professional pursuits, I have
 						actively contributed to the field of Powerlifting. As a
-						competitive powerlifter and coach, I have had the privilege of sharing my knowledge
-						and supporting others on their powerlifting journeys.
-						I co-founded <a href="https://woto.app">WoTo</a>, a SaaS app
-						for powerlifting coaches that now has over 100 monthly paying users.
-						I also served as Head of the D.S.K.V. IJzersterk board from 2021 to 2022.
+						competitive powerlifter and coach, I co-founded <a href="https://woto.app">WoTo</a>,
+						a SaaS app for powerlifting coaches with over 100 monthly paying users.
 					</p>
 					<br />
 					<p>
 						I am motivated by challenges and thrive in environments
 						where innovation and growth are encouraged. In my spare time,
-						I build trading systems with Rust. I am eager
-						to apply my skills and expertise to tackle complex
-						problems and contribute to the success of organizations
-						that align with my values and aspirations.
+						I build trading systems with Rust.
 					</p>
 				</div>
 			</section>
 
-			<section class="terminal-section">
-				<div class="section-header-terminal">
-					<span class="header-prompt">$</span>
-					<span class="header-command">cat employment.json | jq '.positions[]'</span>
-				</div>
+			<section>
 				<h2 class="section-title">Employment</h2>
 				<div class="content">
-					<div class="job-entry">
-						<div class="job-header">
-							<span class="job-status online">●</span>
-							<strong>TradOps Analyst</strong>
-							<span class="job-company">@ Hudson River Trading</span>
+					<div class="job-cards">
+						<div class="job-card current">
+							<div class="job-badge">Current</div>
+							<h3>TradOps Analyst</h3>
+							<p class="company">Hudson River Trading</p>
+							<p class="meta">London, UK • 06/2025 — Present</p>
+							<p class="desc">Supporting and optimizing trading operations at one of the world's leading quantitative trading firms.</p>
 						</div>
-						<div class="job-meta">
-							<span class="meta-tag location">London, UK</span>
-							<span class="meta-tag date">06/2025 → Present</span>
-						</div>
-						<ul class="job-details">
-							<li>
-								Supporting and optimizing trading operations at one of the world's leading quantitative trading firms, ensuring seamless execution across global markets.
-							</li>
-						</ul>
-					</div>
 
-					<div class="job-entry">
-						<div class="job-header">
-							<span class="job-status online">●</span>
-							<strong>Co-Founder</strong>
-							<span class="job-company">@ WoTo (Part-time)</span>
+						<div class="job-card current">
+							<div class="job-badge">Co-founder</div>
+							<h3>WoTo</h3>
+							<p class="company">SaaS for Powerlifting Coaches</p>
+							<p class="meta">Part-time • 09/2023 — Present</p>
+							<p class="desc">Built and scaled a platform for coaches, growing to over 100 monthly paying users.</p>
 						</div>
-						<div class="job-meta">
-							<span class="meta-tag date">09/2023 → Present</span>
-						</div>
-						<ul class="job-details">
-							<li>Built and scaled a SaaS platform for powerlifting coaches, growing to over 100 monthly paying users.</li>
-							<li>Developed entrepreneurial acumen through hands-on business operations, from product development to customer acquisition.</li>
-						</ul>
-					</div>
 
-					<div class="job-entry">
-						<div class="job-header">
-							<span class="job-status offline">○</span>
-							<strong>Trading Operations Engineer</strong>
-							<span class="job-company">@ Flow Traders</span>
+						<div class="job-card">
+							<h3>Trading Operations Engineer</h3>
+							<p class="company">Flow Traders</p>
+							<p class="meta">Amsterdam, NL • 08/2022 — 12/2024</p>
+							<p class="desc">Monitored and enhanced electronic trading systems. Built tooling for system configs. Worked with XLON, XETRA, TP/ICAP.</p>
 						</div>
-						<div class="job-meta">
-							<span class="meta-tag location">Amsterdam, NL</span>
-							<span class="meta-tag date">08/2022 → 12/2024</span>
-						</div>
-						<ul class="job-details">
-							<li>Monitored, maintained, and enhanced one of the world's most advanced electronic trading systems.</li>
-							<li>Specialized in rapid debugging of ad hoc issues before and during market opening to minimize trading disruptions.</li>
-							<li>Automated daily reference data imports and streamlined operational issue resolution.</li>
-							<li>Built internal tooling for collecting, validating, and debugging system configurations.</li>
-							<li>Collaborated directly with major exchanges including XLON, XETRA, and TP/ICAP.</li>
-							<li>Leveraged Prometheus, Grafana, and Airflow for monitoring and workflow orchestration.</li>
-						</ul>
-					</div>
 
-					<div class="job-entry">
-						<div class="job-header">
-							<span class="job-status offline">○</span>
-							<strong>Chief Software Engineer</strong>
-							<span class="job-company">@ Forze Hydrogen Racing</span>
+						<div class="job-card">
+							<h3>Chief Software Engineer</h3>
+							<p class="company">Forze Hydrogen Racing</p>
+							<p class="meta">Delft, NL • 06/2021 — 06/2022</p>
+							<p class="desc">Led embedded systems development for the world's fastest hydrogen-powered racing car.</p>
 						</div>
-						<div class="job-meta">
-							<span class="meta-tag location">Delft, NL</span>
-							<span class="meta-tag date">06/2021 → 06/2022</span>
-						</div>
-						<ul class="job-details">
-							<li>Led embedded systems development for the world's fastest hydrogen-powered racing car.</li>
-							<li>Architected a centralized system for real-time data management and inter-component communication.</li>
-							<li>Established a CI server infrastructure for automated code management and testing.</li>
-							<li>Partnered with IBM to develop and integrate an advanced telemetry system.</li>
-						</ul>
-					</div>
 
-					<div class="job-entry">
-						<div class="job-header">
-							<span class="job-status offline">○</span>
-							<strong>Software Engineer</strong>
-							<span class="job-company">@ AISY Labs (Part-time)</span>
+						<div class="job-card">
+							<h3>Software Engineer</h3>
+							<p class="company">AISY Labs</p>
+							<p class="meta">Delft, NL • 10/2021 — 03/2022</p>
+							<p class="desc">Developed a Side-Channel Analysis toolbox powered by deep learning.</p>
 						</div>
-						<div class="job-meta">
-							<span class="meta-tag location">Delft, NL</span>
-							<span class="meta-tag date">10/2021 → 03/2022</span>
-						</div>
-						<ul class="job-details">
-							<li>Developed a Side-Channel Analysis toolbox powered by deep learning, now actively used by researchers in the security field.</li>
-						</ul>
-					</div>
-
-					<div class="job-entry">
-						<div class="job-header">
-							<span class="job-status offline">○</span>
-							<strong>Teaching Assistant</strong>
-							<span class="job-company">@ TU Delft (Part-time)</span>
-						</div>
-						<div class="job-meta">
-							<span class="meta-tag location">Delft, NL</span>
-							<span class="meta-tag date">02/2018 → 08/2021</span>
-						</div>
-						<ul class="job-details">
-							<li>Guided students through coursework and assignments across seven different courses.</li>
-							<li>Reviewed and graded examinations, maintaining high academic standards.</li>
-						</ul>
 					</div>
 				</div>
 			</section>
 
-			<section class="terminal-section">
-				<div class="section-header-terminal">
-					<span class="header-prompt">$</span>
-					<span class="header-command">cat education.md</span>
-				</div>
+			<section>
 				<h2 class="section-title">Education</h2>
 				<div class="content">
-					<div class="edu-entry">
-						<div class="edu-header">
+					<div class="edu-cards">
+						<div class="edu-card">
 							<span class="edu-icon">🎓</span>
-							<strong>Master of Science in Computer Science</strong>
+							<div class="edu-info">
+								<h3>MSc Computer Science</h3>
+								<p class="school">TU Delft</p>
+								<p class="focus">Data Science, AI & Cyber Security</p>
+							</div>
 						</div>
-						<div class="edu-meta">
-							<span class="meta-tag">TU Delft</span>
-							<span class="meta-tag">02/2018 → 08/2021</span>
-						</div>
-						<ul>
-							<li>Followed both a Data Science and AI track with a specialization in cyber-security.</li>
-							<li><a href="http://resolver.tudelft.nl/uuid:f7c20a8b-8fc2-4c94-a873-d9c8ac9239d0">Thesis</a> on the analysis of higher-order univariate and multivariate data sets in Profiled Side-Channel Analysis.</li>
-							<li>Applied practical knowledge of Deep Learning and other AI techniques.</li>
-						</ul>
-					</div>
-
-					<div class="edu-entry">
-						<div class="edu-header">
+						<div class="edu-card">
 							<span class="edu-icon">🎓</span>
-							<strong>Bachelor of Science in Computer Science & Engineering</strong>
-						</div>
-						<div class="edu-meta">
-							<span class="meta-tag">TU Delft</span>
-							<span class="meta-tag">02/2018 → 08/2021</span>
-						</div>
-						<ul>
-							<li>Minor abroad at KTH Royal Institute of Technology in Stockholm, Sweden.</li>
-							<li>Participation in ten different group projects, four of which as a team leader.</li>
-							<li>Led a <a href="http://resolver.tudelft.nl/uuid:393083dc-a364-477a-afc8-faaca0a244c6">research project</a> into the security of the Ripple XRP Ledger and discovered a critical security flaw.</li>
-						</ul>
-					</div>
-				</div>
-			</section>
-
-			<section class="skills-grid-section">
-				<div class="section-header-terminal full-width">
-					<span class="header-prompt">$</span>
-					<span class="header-command">neofetch --skills</span>
-				</div>
-				<h2 class="section-title full-width">Technical Proficiency</h2>
-
-				<div class="skills-grid">
-					<div class="skill-category">
-						<div class="category-header">
-							<span class="cat-icon">[LANG]</span>
-							<span class="cat-title">Languages</span>
-						</div>
-						<div class="skill-list">
-							<span class="skill-tag primary">Rust</span>
-							<span class="skill-tag primary">Python</span>
-							<span class="skill-tag">C/C++</span>
-							<span class="skill-tag">TypeScript</span>
-							<span class="skill-tag">Bash</span>
-							<span class="skill-tag">Java</span>
-							<span class="skill-tag">Go</span>
-							<span class="skill-tag subtle">Assembly</span>
-							<span class="skill-tag subtle">MatLab</span>
-							<span class="skill-tag subtle">R</span>
-						</div>
-					</div>
-
-					<div class="skill-category">
-						<div class="category-header">
-							<span class="cat-icon">[INFRA]</span>
-							<span class="cat-title">Infrastructure</span>
-						</div>
-						<div class="skill-list">
-							<span class="skill-tag primary">Kubernetes</span>
-							<span class="skill-tag primary">Docker</span>
-							<span class="skill-tag">Linux</span>
-							<span class="skill-tag">Ansible</span>
-							<span class="skill-tag">Terraform</span>
-							<span class="skill-tag">NixOS</span>
-						</div>
-					</div>
-
-					<div class="skill-category">
-						<div class="category-header">
-							<span class="cat-icon">[MON]</span>
-							<span class="cat-title">Monitoring</span>
-						</div>
-						<div class="skill-list">
-							<span class="skill-tag primary">Prometheus</span>
-							<span class="skill-tag primary">Grafana</span>
-							<span class="skill-tag">Kafka</span>
-							<span class="skill-tag">Airflow</span>
-							<span class="skill-tag">ELK Stack</span>
-						</div>
-					</div>
-
-					<div class="skill-category">
-						<div class="category-header">
-							<span class="cat-icon">[SOFT]</span>
-							<span class="cat-title">Soft Skills</span>
-						</div>
-						<div class="skill-list">
-							<span class="skill-tag accent">Composure under pressure</span>
-							<span class="skill-tag accent">Result-driven</span>
-							<span class="skill-tag accent">Disciplined</span>
-							<span class="skill-tag accent">Continuous learner</span>
+							<div class="edu-info">
+								<h3>BSc Computer Science & Engineering</h3>
+								<p class="school">TU Delft</p>
+								<p class="focus">Minor at KTH Stockholm</p>
+							</div>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			<section class="terminal-section">
-				<div class="section-header-terminal">
-					<span class="header-prompt">$</span>
-					<span class="header-command">locale -a</span>
+			<section>
+				<h2 class="section-title">Skills</h2>
+				<div class="content">
+					<div class="skills-grid">
+						<div class="skill-category">
+							<h4>Languages</h4>
+							<div class="skill-tags">
+								<span class="tag highlight">Rust</span>
+								<span class="tag highlight">Python</span>
+								<span class="tag">C/C++</span>
+								<span class="tag">TypeScript</span>
+								<span class="tag">Bash</span>
+								<span class="tag">Go</span>
+							</div>
+						</div>
+						<div class="skill-category">
+							<h4>Infrastructure</h4>
+							<div class="skill-tags">
+								<span class="tag highlight">Kubernetes</span>
+								<span class="tag highlight">Docker</span>
+								<span class="tag">Linux</span>
+								<span class="tag">Ansible</span>
+								<span class="tag">NixOS</span>
+							</div>
+						</div>
+						<div class="skill-category">
+							<h4>Monitoring</h4>
+							<div class="skill-tags">
+								<span class="tag highlight">Prometheus</span>
+								<span class="tag highlight">Grafana</span>
+								<span class="tag">Kafka</span>
+								<span class="tag">Airflow</span>
+							</div>
+						</div>
+					</div>
 				</div>
+			</section>
+
+			<section>
 				<h2 class="section-title">Languages</h2>
-				<div class="content languages-content">
-					<div class="lang-item">
-						<span class="lang-name">English</span>
-						<div class="lang-bar">
-							<div class="lang-fill" style="width: 100%"></div>
+				<div class="content">
+					<div class="lang-bars">
+						<div class="lang-item">
+							<span class="lang-name">English</span>
+							<div class="lang-bar"><div class="lang-fill" style="width: 100%"></div></div>
+							<span class="lang-level">C2</span>
 						</div>
-						<span class="lang-level">C2</span>
-					</div>
-					<div class="lang-item">
-						<span class="lang-name">Dutch</span>
-						<div class="lang-bar">
-							<div class="lang-fill" style="width: 100%"></div>
+						<div class="lang-item">
+							<span class="lang-name">Dutch</span>
+							<div class="lang-bar"><div class="lang-fill" style="width: 100%"></div></div>
+							<span class="lang-level">Native</span>
 						</div>
-						<span class="lang-level">Native</span>
-					</div>
-					<div class="lang-item">
-						<span class="lang-name">German</span>
-						<div class="lang-bar">
-							<div class="lang-fill" style="width: 70%"></div>
+						<div class="lang-item">
+							<span class="lang-name">German</span>
+							<div class="lang-bar"><div class="lang-fill" style="width: 70%"></div></div>
+							<span class="lang-level">B2</span>
 						</div>
-						<span class="lang-level">B2</span>
-					</div>
-					<div class="lang-item">
-						<span class="lang-name">Swedish</span>
-						<div class="lang-bar">
-							<div class="lang-fill" style="width: 50%"></div>
+						<div class="lang-item">
+							<span class="lang-name">Swedish</span>
+							<div class="lang-bar"><div class="lang-fill" style="width: 50%"></div></div>
+							<span class="lang-level">B1</span>
 						</div>
-						<span class="lang-level">B1</span>
 					</div>
 				</div>
 			</section>
-
-			<div class="terminal-footer">
-				<div class="footer-line">
-					<span class="prompt">wolf@hrt:~$</span>
-					<span class="command">echo "EOF"</span>
-				</div>
-				<div class="footer-output">EOF</div>
-				<div class="footer-line">
-					<span class="prompt">wolf@hrt:~$</span>
-					<span class="cursor">█</span>
-				</div>
-			</div>
 		</main>
 		<ContactCTA />
 	</div>
@@ -405,33 +240,6 @@ import TerminalHeader from "../components/TerminalHeader.astro";
 		display: flex;
 		flex-direction: column;
 		gap: 3.5rem;
-	}
-
-	.profile-header {
-		margin-bottom: 1rem;
-	}
-
-	.ascii-banner {
-		overflow-x: auto;
-	}
-
-	.ascii-banner pre {
-		font-family: var(--font-mono);
-		font-size: 0.7rem;
-		line-height: 1.3;
-		color: var(--accent-secondary);
-		margin: 0;
-		padding: 1rem;
-		background: rgba(10, 10, 15, 0.8);
-		border: 1px solid rgba(6, 182, 212, 0.3);
-		border-radius: 6px;
-		white-space: pre;
-	}
-
-	@media (min-width: 50em) {
-		.ascii-banner pre {
-			font-size: 0.85rem;
-		}
 	}
 
 	img {
@@ -446,49 +254,23 @@ import TerminalHeader from "../components/TerminalHeader.astro";
 		box-shadow: var(--shadow-lg), var(--glow-accent);
 	}
 
-	.terminal-section {
+	section {
 		display: flex;
 		flex-direction: column;
-		gap: 0.75rem;
-	}
-
-	.section-header-terminal {
-		display: flex;
-		align-items: center;
 		gap: 0.5rem;
-		font-family: var(--font-mono);
-		font-size: 0.85rem;
-		padding: 0.5rem 0.75rem;
-		background: rgba(10, 10, 15, 0.6);
-		border-left: 3px solid var(--accent-secondary);
-		border-radius: 0 4px 4px 0;
-	}
-
-	.header-prompt {
-		color: #28ca42;
-	}
-
-	.header-command {
-		color: var(--gray-300);
-	}
-
-	.section-title {
-		font-size: var(--text-xl);
-		color: var(--gray-0);
-		letter-spacing: var(--tracking-tight);
-		margin-top: 0.5rem;
-	}
-
-	.content {
 		color: var(--gray-200);
 		line-height: var(--leading-relaxed);
 	}
 
-	.terminal-content {
-		padding: 1rem;
-		background: rgba(10, 10, 15, 0.4);
-		border: 1px solid rgba(6, 182, 212, 0.1);
-		border-radius: 6px;
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+		letter-spacing: var(--tracking-tight);
+	}
+
+	.content {
+		grid-column: 2 / 4;
 	}
 
 	.content :global(a) {
@@ -498,204 +280,179 @@ import TerminalHeader from "../components/TerminalHeader.astro";
 		transition: all var(--transition-fast);
 	}
 
-	.content :global(a:hover),
-	.content :global(a:focus) {
+	.content :global(a:hover) {
 		text-decoration-color: currentColor;
 	}
 
-	.content :global(ul) {
-		padding-left: 1.5rem;
-	}
-
-	.content :global(li) {
-		margin-bottom: 0.25rem;
-	}
-
-	/* Job Entries */
-	.job-entry {
-		padding: 1.25rem;
-		background: rgba(10, 10, 15, 0.5);
-		border: 1px solid rgba(6, 182, 212, 0.15);
-		border-radius: 8px;
-		margin-bottom: 1rem;
-		transition: all 0.3s ease;
-	}
-
-	.job-entry:hover {
-		border-color: rgba(6, 182, 212, 0.4);
-		box-shadow: 0 0 20px rgba(6, 182, 212, 0.1);
-	}
-
-	.job-header {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		flex-wrap: wrap;
-		margin-bottom: 0.5rem;
-	}
-
-	.job-status {
-		font-size: 0.6rem;
-	}
-
-	.job-status.online {
-		color: #28ca42;
-	}
-
-	.job-status.offline {
-		color: var(--gray-500);
-	}
-
-	.job-company {
-		color: var(--accent-secondary);
-		font-family: var(--font-mono);
-		font-size: 0.9rem;
-	}
-
-	.job-meta {
-		display: flex;
-		gap: 0.5rem;
-		flex-wrap: wrap;
-		margin-bottom: 0.75rem;
-	}
-
-	.meta-tag {
-		font-family: var(--font-mono);
-		font-size: 0.75rem;
-		padding: 0.2rem 0.5rem;
-		background: rgba(6, 182, 212, 0.1);
-		border: 1px solid rgba(6, 182, 212, 0.2);
-		border-radius: 3px;
-		color: var(--gray-400);
-	}
-
-	.job-details {
-		padding-left: 1.25rem;
-		color: var(--gray-300);
-	}
-
-	.job-details li {
-		margin-bottom: 0.35rem;
-		font-size: 0.95rem;
-	}
-
-	/* Education Entries */
-	.edu-entry {
-		padding: 1.25rem;
-		background: rgba(10, 10, 15, 0.5);
-		border: 1px solid rgba(6, 182, 212, 0.15);
-		border-radius: 8px;
-		margin-bottom: 1rem;
-	}
-
-	.edu-header {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		margin-bottom: 0.5rem;
-	}
-
-	.edu-icon {
-		font-size: 1.25rem;
-	}
-
-	.edu-meta {
-		display: flex;
-		gap: 0.5rem;
-		margin-bottom: 0.75rem;
-	}
-
-	/* Skills Grid */
-	.skills-grid-section {
+	/* Job Cards */
+	.job-cards {
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
 	}
 
-	.full-width {
-		width: 100%;
+	.job-card {
+		padding: 1.25rem;
+		background: var(--glass-bg);
+		border: 1px solid var(--glass-border);
+		border-radius: var(--radius-lg);
+		backdrop-filter: blur(var(--glass-blur));
+		transition: all 0.3s ease;
+		position: relative;
 	}
 
-	.skills-grid {
-		display: grid;
-		grid-template-columns: 1fr;
+	.job-card:hover {
+		border-color: var(--accent-secondary);
+		box-shadow: 0 0 25px rgba(6, 182, 212, 0.1);
+		transform: translateX(4px);
+	}
+
+	.job-card.current {
+		border-color: rgba(40, 202, 66, 0.3);
+	}
+
+	.job-card.current:hover {
+		border-color: rgba(40, 202, 66, 0.6);
+		box-shadow: 0 0 25px rgba(40, 202, 66, 0.1);
+	}
+
+	.job-badge {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		font-size: 0.65rem;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		padding: 0.25rem 0.5rem;
+		background: rgba(40, 202, 66, 0.15);
+		border: 1px solid rgba(40, 202, 66, 0.3);
+		border-radius: 4px;
+		color: #28ca42;
+	}
+
+	.job-card h3 {
+		font-size: 1.1rem;
+		color: var(--gray-0);
+		margin-bottom: 0.25rem;
+	}
+
+	.job-card .company {
+		color: var(--accent-secondary);
+		font-weight: 500;
+		margin-bottom: 0.25rem;
+	}
+
+	.job-card .meta {
+		font-size: 0.85rem;
+		color: var(--gray-400);
+		margin-bottom: 0.5rem;
+	}
+
+	.job-card .desc {
+		font-size: 0.9rem;
+		color: var(--gray-300);
+	}
+
+	/* Education Cards */
+	.edu-cards {
+		display: flex;
+		flex-direction: column;
 		gap: 1rem;
 	}
 
 	@media (min-width: 50em) {
-		.skills-grid {
-			grid-template-columns: repeat(2, 1fr);
+		.edu-cards {
+			flex-direction: row;
 		}
 	}
 
-	.skill-category {
-		padding: 1.25rem;
-		background: rgba(10, 10, 15, 0.6);
-		border: 1px solid rgba(6, 182, 212, 0.2);
-		border-radius: 8px;
-	}
-
-	.category-header {
+	.edu-card {
 		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		margin-bottom: 1rem;
+		align-items: flex-start;
+		gap: 1rem;
+		padding: 1.25rem;
+		background: var(--glass-bg);
+		border: 1px solid var(--glass-border);
+		border-radius: var(--radius-lg);
+		flex: 1;
+		transition: all 0.3s ease;
 	}
 
-	.cat-icon {
-		font-family: var(--font-mono);
-		font-size: 0.75rem;
-		color: var(--accent-secondary);
-		background: rgba(6, 182, 212, 0.1);
-		padding: 0.2rem 0.4rem;
-		border-radius: 3px;
+	.edu-card:hover {
+		border-color: var(--accent-regular);
+		box-shadow: 0 0 25px rgba(168, 85, 247, 0.1);
 	}
 
-	.cat-title {
-		font-weight: 600;
-		color: var(--gray-100);
+	.edu-icon {
+		font-size: 2rem;
 	}
 
-	.skill-list {
+	.edu-info h3 {
+		font-size: 1rem;
+		color: var(--gray-0);
+		margin-bottom: 0.25rem;
+	}
+
+	.edu-info .school {
+		color: var(--accent-regular);
+		font-weight: 500;
+		margin-bottom: 0.125rem;
+	}
+
+	.edu-info .focus {
+		font-size: 0.85rem;
+		color: var(--gray-400);
+	}
+
+	/* Skills Grid */
+	.skills-grid {
+		display: grid;
+		gap: 1.5rem;
+	}
+
+	@media (min-width: 50em) {
+		.skills-grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	.skill-category h4 {
+		font-size: 0.85rem;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: var(--gray-300);
+		margin-bottom: 0.75rem;
+	}
+
+	.skill-tags {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.5rem;
 	}
 
-	.skill-tag {
-		font-family: var(--font-mono);
-		font-size: 0.8rem;
-		padding: 0.3rem 0.6rem;
-		background: rgba(30, 30, 40, 0.6);
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		border-radius: 4px;
+	.tag {
+		font-size: 0.85rem;
+		padding: 0.4rem 0.75rem;
+		background: var(--glass-bg);
+		border: 1px solid var(--glass-border);
+		border-radius: 6px;
 		color: var(--gray-300);
 		transition: all 0.2s ease;
 	}
 
-	.skill-tag:hover {
+	.tag:hover {
 		border-color: var(--accent-secondary);
 		color: var(--gray-100);
 	}
 
-	.skill-tag.primary {
-		background: rgba(6, 182, 212, 0.15);
-		border-color: rgba(6, 182, 212, 0.4);
+	.tag.highlight {
+		background: rgba(6, 182, 212, 0.1);
+		border-color: rgba(6, 182, 212, 0.3);
 		color: var(--accent-secondary);
 	}
 
-	.skill-tag.accent {
-		background: rgba(168, 85, 247, 0.15);
-		border-color: rgba(168, 85, 247, 0.4);
-		color: var(--accent-regular);
-	}
-
-	.skill-tag.subtle {
-		opacity: 0.6;
-	}
-
-	/* Languages */
-	.languages-content {
+	/* Language Bars */
+	.lang-bars {
 		display: flex;
 		flex-direction: column;
 		gap: 0.75rem;
@@ -707,12 +464,12 @@ import TerminalHeader from "../components/TerminalHeader.astro";
 		align-items: center;
 		gap: 1rem;
 		padding: 0.75rem 1rem;
-		background: rgba(10, 10, 15, 0.5);
-		border-radius: 6px;
+		background: var(--glass-bg);
+		border: 1px solid var(--glass-border);
+		border-radius: var(--radius-md);
 	}
 
 	.lang-name {
-		font-family: var(--font-mono);
 		font-size: 0.9rem;
 		color: var(--gray-200);
 	}
@@ -731,50 +488,9 @@ import TerminalHeader from "../components/TerminalHeader.astro";
 	}
 
 	.lang-level {
-		font-family: var(--font-mono);
-		font-size: 0.75rem;
+		font-size: 0.8rem;
 		color: var(--accent-secondary);
 		text-align: right;
-	}
-
-	/* Terminal Footer */
-	.terminal-footer {
-		padding: 1.5rem;
-		background: rgba(10, 10, 15, 0.8);
-		border: 1px solid rgba(6, 182, 212, 0.2);
-		border-radius: 8px;
-		font-family: var(--font-mono);
-		font-size: 0.9rem;
-		margin-top: 2rem;
-	}
-
-	.footer-line {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-	}
-
-	.footer-output {
-		color: var(--gray-400);
-		padding: 0.5rem 0;
-		margin-left: 1rem;
-	}
-
-	.prompt {
-		color: #28ca42;
-	}
-
-	.command {
-		color: var(--gray-200);
-	}
-
-	.cursor {
-		color: var(--accent-secondary);
-		animation: blink 1s step-end infinite;
-	}
-
-	@keyframes blink {
-		50% { opacity: 0; }
 	}
 
 	@media (min-width: 50em) {
@@ -787,21 +503,9 @@ import TerminalHeader from "../components/TerminalHeader.astro";
 			grid-column-start: 2;
 		}
 
-		.terminal-section,
-		.skills-grid-section,
-		.profile-header,
-		.terminal-footer {
-			grid-column: 2;
-		}
-
 		section {
+			display: contents;
 			font-size: var(--text-lg);
-		}
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.cursor {
-			animation: none;
 		}
 	}
 </style>
