@@ -1,10 +1,18 @@
+---
+import DownloadFile from "./DownloadFile.astro";
+---
+
 <aside>
 	<p>
-		Prefer a traditional CV? I'm happy to send you the latest version.
+		Prefer a traditional CV? Download the PDF, or
+		<a class="mail" href="mailto:wolfbubberman+portfolio@gmail.com?subject=CV%20request">ask me</a>
+		for the latest version.
 	</p>
-	<a href="mailto:wolfbubberman+portfolio@gmail.com?subject=CV%20request">
-		Request my CV
-	</a>
+	<DownloadFile
+		href="/assets/cv_wolfgang_bubberman.pdf"
+		name="cv_wolfgang_bubberman.pdf"
+		description="Download CV"
+	/>
 </aside>
 <style>
 	aside {
@@ -28,23 +36,14 @@
 		max-width: 45ch;
 	}
 
-	a {
-		flex-shrink: 0;
-		padding: 0.6rem 1.25rem;
-		font-family: var(--font-brand);
-		font-size: var(--text-base);
-		font-weight: 500;
+	.mail {
 		color: var(--accent-secondary);
-		text-decoration: none;
-		border: 1px solid var(--accent-secondary);
-		border-radius: var(--radius-full);
-		transition: all var(--transition-fast);
+		text-underline-offset: 0.2em;
 	}
 
-	a:hover,
-	a:focus {
-		color: var(--gray-999);
-		background: var(--accent-secondary);
+	.mail:hover,
+	.mail:focus {
+		color: var(--accent-secondary-dark);
 	}
 
 	@media (min-width: 50em) {

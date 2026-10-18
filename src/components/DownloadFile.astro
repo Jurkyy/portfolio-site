@@ -8,7 +8,7 @@ interface Props {
 const { href, name, description } = Astro.props;
 ---
 
-<a aria-label="Open P D F file" href={href}>{description}</a>
+<a href={href} download={name} type="application/pdf">{description} (PDF)</a>
 
 <style>
   a {
@@ -51,8 +51,8 @@ const { href, name, description } = Astro.props;
 
   @media (min-width: 50em) {
     a {
-      padding: 1.125rem 2.5rem;
-      font-size: var(--text-xl);
+      padding: 0.875rem 2rem;
+      font-size: var(--text-lg);
     }
   }
 </style>
