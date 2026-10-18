@@ -12,6 +12,7 @@ tags:
   - Hydrogen
 size: Huge
 popularity: 90
+order: 1
 ---
 
 Working on this codebase has been an incredible experience for me. It is by far the largest codebase I have ever had the opportunity to work on, with over 2 million lines of code. This presented a fantastic challenge and allowed me to learn extensively about embedded programming and C++ throughout the project.

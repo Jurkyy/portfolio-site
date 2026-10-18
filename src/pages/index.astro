@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getListedProjects } from "../utils/projects";
 
 import BaseLayout from "../layouts/BaseLayout.astro";
 
@@ -13,10 +13,7 @@ import GlitchText from "../components/GlitchText.astro";
 import ContactCTA from "../components/ContactCTA.astro";
 import Skills from "../components/Skills.astro";
 
-const projects = (await getCollection("projects"))
-	.filter((project) => !project.slug.includes("/"))
-	.sort((a, b) => (b.data.popularity ?? 50) - (a.data.popularity ?? 50))
-	.slice(0, 3);
+const projects = (await getListedProjects()).slice(0, 3);
 ---
 
 <BaseLayout>

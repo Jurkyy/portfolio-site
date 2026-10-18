@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getListedProjects } from "../utils/projects";
 
 import BaseLayout from "../layouts/BaseLayout.astro";
 
@@ -8,13 +8,7 @@ import PortfolioPreview from "../components/PortfolioPreview.astro";
 import Hero from "../components/Hero.astro";
 import Grid from "../components/Grid.astro";
 
-const projects = (await getCollection("projects"))
-  .filter((entry) => !entry.slug.includes("/"))
-  .sort((a, b) => {
-    const popA = a.data.popularity ?? 50;
-    const popB = b.data.popularity ?? 50;
-    return popB - popA;
-  });
+const projects = await getListedProjects();
 
 const projectCount = projects.length;
 const rustCount = projects.filter(p => p.data.tags?.includes('Rust')).length;

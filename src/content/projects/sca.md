@@ -15,6 +15,7 @@ children:
   - title: SideDL
   - title: SCA Toolbox
 popularity: 95
+order: 4
 ---
 I have done many different projects within the field of Side-Channel Analysis (SCA), my MSc Thesis even dug deeper into the subject and made a major improvement to the field. To showcase some of these projects I have made this collection, please see the project previews above, they are in chronological order.
 

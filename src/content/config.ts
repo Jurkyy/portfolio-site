@@ -13,7 +13,10 @@ export const collections = {
 				title: z.string(),
 			})).optional(),
 			size: z.string().optional(),
-			popularity: z.number().optional().default(50)
+			popularity: z.number().optional().default(50),
+			// Explicit position in project listings (lower first). Entries with an
+			// order are listed before all others, child projects included.
+			order: z.number().optional()
 		}),
 	}),
 };

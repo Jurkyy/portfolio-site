@@ -11,6 +11,7 @@ tags:
   - Math
 size: Small
 popularity: 80
+order: 3
 ---
 
 Metaball is a terminal-based animation that renders organic, blob-like shapes using ASCII characters. Similar to my Spinny Cube project, this is an exploration of mathematical visualization in the command line, this time focusing on the fascinating world of metaballs.
