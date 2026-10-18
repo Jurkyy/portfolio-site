@@ -49,10 +49,10 @@ if (entry.slug.includes("/")) {
           >
           <Hero title={entry.data.title} align="start">
             <div class="details">
+              <p class="description">{entry.data.description}</p>
               <div class="tags">
                 {entry.data.tags.map((t) => <Pill>{t}</Pill>)}
               </div>
-              <p class="description">{entry.data.description}</p>
             </div>
           </Hero>
         </div>
@@ -111,6 +111,7 @@ if (entry.slug.includes("/")) {
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   .description {
@@ -185,8 +186,12 @@ if (entry.slug.includes("/")) {
     }
 
     .details {
-      flex-direction: row;
-      gap: 2.5rem;
+      align-items: flex-start;
+      padding-inline: 0;
+    }
+
+    .tags {
+      justify-content: flex-start;
     }
 
     .content :global(blockquote) {

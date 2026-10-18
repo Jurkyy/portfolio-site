@@ -25,9 +25,10 @@
 	--accent-text-over: var(--gray-999);
 
 	/* Secondary accent - Cyan/Teal for hacker aesthetic */
-	--accent-secondary-light: #22d3ee;
-	--accent-secondary: #06b6d4;
-	--accent-secondary-dark: #0891b2;
+	/* Darker teal on light backgrounds so text and links keep AA contrast */
+	--accent-secondary-light: #06b6d4;
+	--accent-secondary: #0e7490;
+	--accent-secondary-dark: #155e75;
 	--accent-secondary-overlay: hsla(185, 85%, 50%, 0.25);
 
 	--link-color: var(--accent-regular);
@@ -78,9 +79,10 @@
 		0 0 60px hsla(280, 85%, 65%, 0.25);
 
 	/* Glass effect variables */
-	--glass-bg: hsla(var(--gray-999-basis), 0.7);
-	--glass-bg-subtle: hsla(var(--gray-999-basis), 0.5);
-	--glass-border: hsla(var(--gray-999-basis), 0.3);
+	--glass-bg: hsla(var(--gray-999-basis), 0.75);
+	--glass-bg-subtle: hsla(var(--gray-999-basis), 0.55);
+	/* Visible hairline on white so cards keep their edges in light mode */
+	--glass-border: hsla(225, 25%, 55%, 0.22);
 	--glass-blur: 12px;
 
 	/* Text Sizes - Improved hierarchy */
@@ -202,8 +204,13 @@
 
 html,
 body {
-	height: 100%;
-	overflow-x: hidden;
+	/* clip (not hidden) so the window stays the scroll container */
+	overflow-x: clip;
+}
+
+body {
+	min-height: 100vh;
+	min-height: 100dvh;
 }
 
 body {

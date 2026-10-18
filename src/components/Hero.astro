@@ -29,20 +29,23 @@ const { align = "center", tagline, title, typing = false } = Astro.props;
     text-align: center;
   }
 
-  .title,
+  /* :global so the typed title (rendered by TypingEffect) is styled too */
+  .hero :global(.title),
   .tagline {
     max-width: 37ch;
     margin-inline: auto;
   }
 
-  .title {
-    font-size: var(--text-3xl);
+  .hero :global(.title) {
+    font-size: clamp(2rem, 9.5vw, var(--text-3xl));
+    text-wrap: balance;
     color: var(--gray-0);
     letter-spacing: var(--tracking-tight);
   }
 
   .tagline {
     color: var(--gray-300);
+    text-wrap: pretty;
     line-height: var(--leading-relaxed);
   }
 
@@ -55,12 +58,12 @@ const { align = "center", tagline, title, typing = false } = Astro.props;
       text-align: start;
     }
 
-    .start .title,
+    .start :global(.title),
     .start .tagline {
       margin-inline: unset;
     }
 
-    .title {
+    .hero :global(.title) {
       font-size: var(--text-5xl);
     }
   }

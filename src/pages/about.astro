@@ -330,6 +330,12 @@ import CV from "../components/CV.astro";
 		color: #28ca42;
 	}
 
+	:global(:root:not(.theme-dark)) .job-badge {
+		color: #15803d;
+		background: rgba(21, 128, 61, 0.08);
+		border-color: rgba(21, 128, 61, 0.3);
+	}
+
 	.job-card h3 {
 		font-size: 1.1rem;
 		color: var(--gray-0);
@@ -504,7 +510,7 @@ import CV from "../components/CV.astro";
 
 	.lang-bar {
 		height: 8px;
-		background: rgba(30, 30, 40, 0.8);
+		background: var(--gray-800);
 		border-radius: 4px;
 		overflow: hidden;
 	}

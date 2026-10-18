@@ -1,39 +1,58 @@
 <aside>
-	<h4>
-		Prefer to have this in a more traditional CV style? Get in touch with me
-		and request the latest version of my CV.
-	</h4>
+	<p>
+		Prefer a traditional CV? I'm happy to send you the latest version.
+	</p>
+	<a href="mailto:wolfbubberman+portfolio@gmail.com?subject=CV%20request">
+		Request my CV
+	</a>
 </aside>
 <style>
 	aside {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		gap: 3rem;
-		border-top: 1px solid var(--gray-800);
-		border-bottom: 1px solid var(--gray-800);
-		padding: 5rem 1.5rem;
-		background-color: var(--gray-999_40);
-		box-shadow: var(--shadow-sm);
+		gap: 1rem;
+		margin-top: 1.5rem;
+		padding: 1.5rem;
+		text-align: center;
+		background: var(--glass-bg);
+		border: 1px solid var(--glass-border);
+		border-radius: var(--radius-lg);
+		backdrop-filter: blur(var(--glass-blur));
+		-webkit-backdrop-filter: blur(var(--glass-blur));
 	}
 
-	h4 {
+	p {
 		font-size: var(--text-md);
-		text-align: center;
-		max-width: 50ch;
+		color: var(--gray-200);
+		max-width: 45ch;
+	}
+
+	a {
+		flex-shrink: 0;
+		padding: 0.6rem 1.25rem;
+		font-family: var(--font-brand);
+		font-size: var(--text-base);
+		font-weight: 500;
+		color: var(--accent-secondary);
+		text-decoration: none;
+		border: 1px solid var(--accent-secondary);
+		border-radius: var(--radius-full);
+		transition: all var(--transition-fast);
+	}
+
+	a:hover,
+	a:focus {
+		color: var(--gray-999);
+		background: var(--accent-secondary);
 	}
 
 	@media (min-width: 50em) {
 		aside {
-			padding: 7.5rem;
 			flex-direction: row;
-			flex-wrap: wrap;
 			justify-content: space-between;
-		}
-
-		h4 {
-			font-size: var(--text-xl);
 			text-align: left;
+			padding: 1.5rem 2rem;
 		}
 	}
 </style>
