@@ -1,6 +1,6 @@
 ---
 title: Track2MIDI
-publishDate: 2024-28-06 00:00:00
+publishDate: 2024-06-28 00:00:00
 img: /assets/track2midi.png
 img_alt: Visualization of audio waveform being converted to MIDI notes.
 description: |

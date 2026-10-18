@@ -1,6 +1,6 @@
 ---
 title: SCA thesis
-publishDate: 2022-21-04 00:00:00
+publishDate: 2022-04-21 00:00:00
 img: /assets/sca-thesis.jpg
 img_alt: A picture of the commandline interface of the SCA toolbox.
 description: |

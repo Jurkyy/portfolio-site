@@ -1,6 +1,6 @@
 ---
 title: "wbubberman.com"
-publishDate: 2023-15-06 00:00:00
+publishDate: 2023-06-15 00:00:00
 img: /assets/portfolio.jpg
 img_alt: An image of the title page of wbubberman.com.
 description: |
@@ -26,7 +26,7 @@ On the **Projects Page**, you'll discover some of my favorite projects. Each pro
 
 The **About Page** is where you'll find a detailed description of me. It's like a digital CV that outlines my journey, achievements, and experiences. Here, you can explore my professional history and gain a deeper understanding of what makes me tick.
 
-So, as you explore these sections, take your time to get to know me and my work. I hope you find this portfolio both informative and engaging. If you have any questions or would like to connect, feel free to reach out to the contact information in the footer of each page. Thank you for visiting!
+So, as you explore these sections, take your time to get to know me and my work. I hope you find this portfolio both informative and engaging. If you have any questions or would like to connect, feel free to reach out using the contact section at the bottom of each page. Thank you for visiting!
 
 #### Github
 

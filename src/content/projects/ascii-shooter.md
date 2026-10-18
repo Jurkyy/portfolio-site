@@ -1,6 +1,6 @@
 ---
 title: ASCII Shooter
-publishDate: 2024-20-11 00:00:00
+publishDate: 2024-11-20 00:00:00
 img: /assets/ascii-shooter.png
 img_alt: A screenshot of the ASCII shooter game showing the distinctive post-process rendering effect.
 description: |

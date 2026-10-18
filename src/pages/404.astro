@@ -1,8 +1,47 @@
 ---
-import Hero from '../components/Hero.astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from "../components/Hero.astro";
+import CallToAction from "../components/CallToAction.astro";
+import Icon from "../components/Icon.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="Not Found" description="404 Error — this page was not found">
-	<Hero title="Page Not Found" tagline="Not found" />
+<BaseLayout title="Page not found | Wolfgang Bubberman" description="404: this page does not exist.">
+	<main class="wrapper stack gap-8 not-found">
+		<Hero
+			title="Page not found"
+			tagline="This page doesn't exist or has moved. Head back home or browse the projects."
+		/>
+		<div class="actions">
+			<CallToAction href="/">
+				<Icon icon="arrow-left" size="1.2em" />
+				Back to home
+			</CallToAction>
+			<a class="secondary" href="/projects/">View projects</a>
+		</div>
+	</main>
 </BaseLayout>
+
+<style>
+	.not-found {
+		padding-block: 2rem 6rem;
+	}
+
+	.actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.5rem;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.secondary {
+		color: var(--gray-200);
+		text-decoration: underline;
+		text-underline-offset: 0.25em;
+	}
+
+	.secondary:hover,
+	.secondary:focus {
+		color: var(--accent-secondary);
+	}
+</style>

@@ -1,6 +1,6 @@
 ---
 title: SCA Toolbox
-publishDate: 2020-21-04 00:00:00
+publishDate: 2020-04-21 00:00:00
 img: /assets/sca-toolbox.jpg
 img_alt: A picture of the commandline interface of the SCA toolbox.
 description: |

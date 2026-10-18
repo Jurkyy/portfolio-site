@@ -1,6 +1,6 @@
 ---
 title: Chess
-publishDate: 2023-26-01 00:00:00
+publishDate: 2023-01-26 00:00:00
 img: /assets/chess.jpg
 img_alt: The chess piece, the pawn.
 description: |

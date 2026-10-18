@@ -1,6 +1,6 @@
 ---
 title: AI Personal Assistant
-publishDate: 2024-15-08 00:00:00
+publishDate: 2024-08-15 00:00:00
 img: /assets/ai-pa.png
 img_alt: A conceptual illustration of an AI personal assistant with modular components.
 description: |
